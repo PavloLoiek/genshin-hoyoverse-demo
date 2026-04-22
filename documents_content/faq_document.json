@@ -1,0 +1,67 @@
+{
+  "type": "faq",
+  "title": "HoYoverse — Genshin Impact Player Support FAQ",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Wish_System",
+      "qa_pairs": [
+        {"q": "Wish System Basics — how do wishes work?", "a": "Wishes are Genshin Impact's gacha mechanic. You spend Fates to wish on a Banner for a chance at characters and weapons. Acquaint Fates are used on the Standard Wish banner, while Intertwined Fates are used on Character Event and Weapon Event banners. A single wish costs one Fate; you can also perform ten wishes at once. The base 5-star drop rate is 0.6 percent before soft pity activates."},
+        {"q": "Pity Counter — what is it and how does it work?", "a": "The pity counter tracks how many wishes you have made since your last 5-star or 4-star pull on a given banner type. On Character Event banners, a 5-star is guaranteed by pull 90 (hard pity) and a 4-star by pull 10. The counter persists between banners of the same type. Travelers like Aisha Patel (UID 803990456) can check their pity in the in-game Wish History screen."},
+        {"q": "Soft Pity Explained — when does it activate?", "a": "Soft pity is the sharp increase in 5-star drop rate that begins around pull 75 on Character Event banners. Between pulls 75 and 89 your chance of a 5-star rises dramatically each wish, so most players receive their guaranteed 5-star well before hitting hard pity at 90. A player at pull 80 is inside soft pity territory and can typically expect a 5-star within the next 1–10 wishes."},
+        {"q": "Guaranteed 5-Star — what is the 50/50 system?", "a": "When you win a 5-star on a Character Event banner, there is a 50 percent chance it is the featured character and 50 percent it is a Standard Wish character. If you lose the 50/50, your next 5-star on any Character Event banner is guaranteed to be the featured character. This guarantee carries over between banners of the same type."},
+        {"q": "Standard vs. Event Banner — what is the difference?", "a": "The Standard Wish banner (Wanderlust Invocation) offers a permanent pool of 5-star characters and weapons and uses Acquaint Fates. Character Event and Weapon Event banners rotate every three weeks, feature a limited 5-star, and use Intertwined Fates. Limited-time characters are not available on the Standard banner."},
+        {"q": "Weapon Banner Rules — how does Epitome Invocation work?", "a": "The Weapon Event Wish (Epitome Invocation) uses the Epitomized Path: you select one of the two featured 5-star weapons, and if you win a 5-star that is not your chosen weapon, your Fate Points increase by one. At two Fate Points, your next 5-star weapon is guaranteed to be your chosen one. Hard pity for weapon banners is 80 and soft pity begins around pull 65."}
+      ]
+    },
+    {
+      "heading": "Currency_And_Purchases",
+      "qa_pairs": [
+        {"q": "Genesis Crystal Packages — what options are available?", "a": "Genesis Crystals are the premium currency purchased with real money and convert 1-to-1 into Primogems in-game. Packages range from 60 Crystals for 0.99 USD up to 6480 Crystals for 99.99 USD. First-time purchases on each package tier grant a one-time double bonus. Players like Kaito Nakamura (UID 832458917) frequently purchase the 6480 Crystal pack for major banners."},
+        {"q": "Welkin Moon Benefits — is the Blessing of the Welkin Moon worth it?", "a": "The Blessing of the Welkin Moon is a 30-day subscription costing 4.99 USD. It grants 300 Genesis Crystals immediately plus 90 Primogems each day you log in — a total of 3000 Primogems over 30 days. It offers the best value per US dollar of any top-up and can stack up to 30 unclaimed days at a time."},
+        {"q": "Battle Pass Contents — what does Gnostic Hymn include?", "a": "The seasonal Battle Pass costs 9.99 USD (Gnostic Hymn) or 19.99 USD (Gnostic Chorus with 10 free tiers). Full completion rewards include 5 Intertwined Fates, a selectable 4-star event weapon, Primogems, Mora, character experience books, and enhancement ores. Each season lasts approximately six weeks and aligns with character banners."},
+        {"q": "First Top-Up Bonus — what is the double-reward promo?", "a": "Every Genesis Crystal package tier offers a one-time First-Time Recharge Bonus that doubles the number of Crystals you receive. The bonus resets with each unique package size — the 60, 300, 980, 1980, 3280, and 6480 tiers each grant their own one-time double reward. The bonus can only be claimed once per package size per account."},
+        {"q": "Primogem vs. Genesis Crystal — what is the difference?", "a": "Primogems are earned through gameplay, events, daily commissions, and Spiral Abyss rewards — they are free but slow to accumulate. Genesis Crystals are purchased with real money and convert into Primogems at 1-to-1. Both are used to buy Fates for wishing, but only Primogems can be earned through play. Free-to-play travelers like Sofia Rodriguez (UID 704582103) rely exclusively on Primogems earned in-game."}
+      ]
+    },
+    {
+      "heading": "Account_And_Servers",
+      "qa_pairs": [
+        {"q": "Server Regions — how do I know which server I am on?", "a": "Genshin Impact has four server regions: America, Europe, Asia, and TW/HK/MO. Your server is selected at account creation and cannot be changed — progress does not transfer between regions. The first digit of your UID identifies your region: 6 = America, 7 = Europe, 8 = Asia, 9 = TW/HK/MO. For example, UID 803990456 indicates an Asia-region account."},
+        {"q": "UID Lookup — where can I find my UID?", "a": "Your UID is a nine-digit number displayed in the bottom-right corner of the in-game screen at all times. You can also find it on the login screen, in your Paimon Menu, and on your HoYoLAB profile. Always include your UID when contacting support so our agents can locate your account quickly."},
+        {"q": "Account Linking — how do I link my HoYoverse account?", "a": "You can link your in-game UID to a HoYoverse Account, Apple ID, Google Play, Facebook, Twitter, or PlayStation Network account from the Account Settings menu. Linking safeguards your progress and enables login on multiple devices. We strongly recommend linking at least two methods for redundancy. Marcus Chen (UID 603245891) links both HoYoverse and PSN for cross-platform play."},
+        {"q": "Cross-Platform Progress — can I play on multiple devices?", "a": "Yes. Your progress syncs across iOS, Android, Windows PC, and PlayStation 4/5 as long as you log in with the same linked account and play on the same UID's server region. Cloud saves update in real time. You cannot be logged in on two devices simultaneously — a new login will disconnect the earlier session."},
+        {"q": "Language Settings — can I change my game language?", "a": "Yes. Text language can be changed in Paimon Menu → Settings → Language at any time. Voice-over language (English, Japanese, Korean, or Chinese) can also be switched independently and requires a small additional download. Changes apply after restarting the game."}
+      ]
+    },
+    {
+      "heading": "Safety_And_Compliance",
+      "qa_pairs": [
+        {"q": "Parental Controls — how can a guardian limit a child's spending?", "a": "HoYoverse offers in-app Parental Controls that can set daily spending caps, restrict access to in-app purchases, and limit playtime per day. Guardians enable these in Account Settings → Parental Controls after identity verification. We strongly encourage guardians of minor travelers to enable these controls before any top-up activity."},
+        {"q": "Minor Account Policy — what protections exist for minors?", "a": "Under our Minor Account Protection Policy, accounts belonging to travelers under 18 are eligible for full refund on unauthorised purchases made without guardian consent. The guardian must provide government-issued ID, the child's date of birth, and the last four digits of the payment method used. Tickets are reviewed on an expedited basis."},
+        {"q": "Refund Policy — are Genesis Crystal purchases refundable?", "a": "All Genesis Crystal purchases are final once the Crystals have been delivered to the account, except where required by law or where the Minor Account Protection Policy applies. Failed or delayed deliveries can always be refunded or retried free of charge. Duplicate charges identified within 14 days are refunded automatically once verified."},
+        {"q": "Ban Appeals — my account was suspended, what can I do?", "a": "If you believe your account was suspended in error, you can submit a ban appeal at support@hoyoverse-demo.com with your UID, the date of suspension, and any relevant context. Appeals are reviewed within 7 business days by our Account Security team. Bans for confirmed use of third-party tools, account sharing, or fraudulent top-ups are generally not overturned."},
+        {"q": "Data Privacy — how is my personal data handled?", "a": "HoYoverse collects only the data required to operate your account and comply with regional regulations. You can request a data export or deletion at any time by contacting privacy@hoyoverse-demo.com. Personal data is never sold to third parties. Full details are available in our Privacy Policy on the official website."}
+      ]
+    },
+    {
+      "heading": "Gameplay_Basics",
+      "qa_pairs": [
+        {"q": "Adventure Rank Rewards — what do I unlock as I level up?", "a": "Adventure Rank (AR) ranges from 1 to 60 and unlocks new content at each milestone: co-op at AR 16, Spiral Abyss at AR 20, weekly bosses at AR 30, and World Level increases every several ranks. Each AR level up grants Primogems, Mora, and Hero's Wit experience books. AR 60 is the current account cap."},
+        {"q": "Daily Commissions — how do they work?", "a": "From AR 12 onward you receive four Daily Commissions per day from the Adventurers' Guild. Completing all four and claiming the bonus from Katheryne grants 60 Primogems, 20000 Mora, and character or weapon experience books daily. Commissions reset at 04:00 server time each day."},
+        {"q": "Resin System — what is Original Resin?", "a": "Original Resin is the daily activity energy used to claim rewards from Domains, weekly bosses, Ley Line Outcrops, and world bosses. You regenerate one Resin every eight minutes, up to a maximum of 160. Fragile Resin, earned from Spiral Abyss and events, can instantly restore 60 Resin."},
+        {"q": "World Level — how does it scale difficulty?", "a": "World Level (WL 0–8) governs enemy difficulty and reward quality in the overworld. It automatically increases at set AR milestones (AR 20 → WL 2, AR 25 → WL 3, and so on). From WL 5 onward you may temporarily lower your World Level if content feels too difficult. Drops scale accordingly."},
+        {"q": "Spiral Abyss — what are the rewards?", "a": "The Spiral Abyss is the endgame rotating challenge mode unlocked at AR 20. Floors 1–8 are permanent, while Floors 9–12 (the Abyssal Moon Spire) reset every two weeks with a new blessing and enemy lineup. Clearing Chamber 3 of each floor grants Primogems — a full clear of Floors 9–12 with all stars awards 600 Primogems per cycle."}
+      ]
+    },
+    {
+      "heading": "Events_And_Support",
+      "qa_pairs": [
+        {"q": "Event Rewards Claim — where do my event rewards go?", "a": "Most event rewards are distributed via in-game mail and must be claimed within 30 days before they expire. Log in and open the Mail icon in the upper-left of the Paimon Menu. If you are missing rewards from a confirmed event, contact support with your UID and the event name and we will investigate."},
+        {"q": "Compensation Policy — what compensation is issued for outages?", "a": "For confirmed server outages we issue standard compensation via in-game mail: 60 Primogems for outages of one hour or more, and 300 Primogems for outages of six hours or more. Extended outages of twelve hours or more receive 300 Primogems plus 3 Intertwined Fates. Additional goodwill compensation may be escalated for travelers whose event progress was significantly affected."},
+        {"q": "Known Incidents Page — where can I check current issues?", "a": "Our Known Incidents page lists all confirmed server issues, maintenance windows, and compensation status. For example, incident INC202604161 affected the Asia region on April 16–17, 2026, with an 18-hour outage caused by database maintenance outside the scheduled window. Affected travelers received 300 Primogems automatically via in-game mail."},
+        {"q": "Submit Ticket Channels — how do I contact support?", "a": "Travelers can reach us three ways: (1) in-game via Paimon Menu → Feedback → Customer Service, (2) by email at support@hoyoverse-demo.com, or (3) by phone at our 24/7 hotline +1 650-555-0199. For fastest service, include your UID, server region, and a clear description of your issue. Response times average under two hours for in-game tickets."}
+      ]
+    }
+  ]
+}

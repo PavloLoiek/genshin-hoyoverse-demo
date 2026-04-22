@@ -1,0 +1,47 @@
+{
+  "type": "policy",
+  "title": "HoYoverse — Top-Up and Refund Policy",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "1. Policy Statement",
+      "content": "1.1 HoYoverse shall process all Genesis Crystal purchases, subscription payments (Blessing of the Welkin Moon, Battle Pass), and refund requests in a consistent, transparent, and compliant manner across all supported payment methods and regions.\n\n1.2 This policy balances the finality of consumable-item purchases with mandatory consumer-protection safeguards, including the Minor Account Protection Policy.\n\n1.3 This policy becomes effective 2026-01-01."
+    },
+    {
+      "heading": "2. Scope & Applicability",
+      "content": "2.1 This policy applies to all payment transactions executed through the official HoYoverse top-up portal, in-app purchases on Apple App Store, Google Play, PlayStation Store, and Epic Games Store, and subscription products (Welkin Moon, Battle Pass).\n\n2.2 It governs delivery, delay, duplicate, and unauthorized-charge scenarios, and refund eligibility.\n\n2.3 Platform-store refunds may additionally be subject to the refund terms of the respective platform (Apple, Google, Sony, Epic)."
+    },
+    {
+      "heading": "3. Definitions",
+      "content": "3.1 'Genesis Crystal' — The premium virtual currency purchased with real money and convertible 1-to-1 into Primogems within Genshin Impact.\n\n3.2 'Primogem' — The in-game premium currency used to purchase Fates.\n\n3.3 'Consumable Item' — Virtual goods that, once delivered to the account, are considered consumed for refund-policy purposes.\n\n3.4 'Minor Account' — A Genshin Impact account whose registered date of birth indicates the traveler is under 18 years of age, or which is otherwise flagged as a minor account.\n\n3.5 'Guardian' — A parent or legal guardian of a Minor Account's registered traveler."
+    },
+    {
+      "heading": "4. Purchase Finality",
+      "content": "4.1 All purchases of Genesis Crystals are final once the Crystals have been successfully delivered to the traveler's account.\n\n4.2 Subscription products (Welkin Moon, Battle Pass) are final once the initial benefit has been granted or the rewards track has begun accumulating.\n\n4.3 Clause 4.1 does not apply in the following scenarios, which remain refundable:\n  4.3.1 Delivery failed — payment succeeded but Genesis Crystals were not delivered after two retry attempts\n  4.3.2 Duplicate charge — the same transaction was captured twice within 24 hours\n  4.3.3 Accidental double-subscription — Welkin Moon or Battle Pass purchased twice within 24 hours\n  4.3.4 Minor Account Protection Policy applies (see Section 5)\n  4.3.5 Required by applicable law or a court order\n\n4.4 Refunds under 4.3 shall be issued to the original payment method within 5 business days for cards and up to 10 business days for bank transfers."
+    },
+    {
+      "heading": "5. Minor Account Protection Policy (MAPP)",
+      "content": "5.1 HoYoverse recognises that unauthorized in-app purchases by minors without guardian consent represent a material risk and shall provide a full-refund pathway for these cases notwithstanding the purchase-finality clause in Section 4.1.\n\n5.2 Eligibility for a full refund under MAPP requires:\n  5.2.1 The account is registered to a traveler under 18 years of age OR the guardian can demonstrate the minor used the account\n  5.2.2 The purchases were made without the guardian's consent\n  5.2.3 The guardian provides government-issued photo ID, the child's date of birth, and the last four digits of the payment method used\n  5.2.4 The guardian agrees to enable Parental Controls on the account going forward\n\n5.3 MAPP refunds are issued on an expedited basis (maximum 5 business-day processing SLA from ID verification).\n\n5.4 MAPP may be invoked for purchases up to 180 days prior to the guardian's first contact with Player Support.\n\n5.5 Agents handling MAPP cases shall NOT cite clause 4.1 ('all sales final') as a basis for refusal. The MAPP exception controls."
+    },
+    {
+      "heading": "6. Business Rules & Procedures",
+      "content": "6.1 Where payment succeeded but Crystals were not delivered, agents shall attempt delivery retry via retry_crystal_delivery before opening a refund.\n\n6.2 Duplicate charges shall be identified by matching transaction amount, payment method, and timestamp within a 24-hour window.\n\n6.3 Refund destinations shall be the original payment method; store credit or in-game compensation is not an acceptable substitute absent traveler consent.\n\n6.4 Chargebacks initiated by travelers before contacting Player Support shall be acknowledged but not double-refunded; agents shall advise travelers to withdraw the chargeback to preserve account standing.\n\n6.5 All refund tickets shall be tagged with a reason code (DELIVERY_FAILED, DUPLICATE, MAPP, UNAUTHORIZED, LEGAL) for reporting and audit."
+    },
+    {
+      "heading": "7. Compliance Requirements",
+      "content": "7.1 All refund actions require account authentication per the Account Recovery Policy, including UID, email, Order ID, and last four of payment.\n\n7.2 Guardian identity verification for MAPP cases must be completed via the secure document-upload portal; IDs shall not be read aloud or transmitted by email.\n\n7.3 Agents may not discuss refund amounts, Order IDs, or payment details with parties who have not been fully authenticated.\n\n7.4 All refund decisions and their reason codes shall be documented in CRM within the same session and retained for seven years."
+    },
+    {
+      "heading": "8. Approval Thresholds",
+      "content": "8.1 Front-line agents may issue refunds up to 500 USD without escalation, under established reason codes.\n\n8.2 Refunds exceeding 500 USD require Payments Team (extension 7400) approval.\n\n8.3 Refunds of subscription products already activated require supervisor approval.\n\n8.4 MAPP refunds are processed by the Minor Account Team (extension 7800) for cases exceeding 500 USD or involving 3+ transactions; smaller MAPP cases may be processed by front-line agents once guardian verification is complete."
+    },
+    {
+      "heading": "9. Regulatory References",
+      "content": "9.1 California Consumer Privacy Act (CCPA) — data handling for minor accounts.\n\n9.2 European Union Digital Services Act — consumer protection for digital-goods purchases.\n\n9.3 UK Consumer Rights Act — statutory refund rights for digital content.\n\n9.4 Apple App Store Review Guidelines Section 3.1 and Google Play Families Policy — platform-level MAPP requirements.\n\n9.5 PCI-DSS — cardholder data handling during refund processing."
+    },
+    {
+      "heading": "10. Effective Date & Review",
+      "content": "10.1 This policy is effective as of 2026-01-01.\n\n10.2 The 'all sales final' clause in Section 4.1 and the MAPP exception in Section 5 shall be reviewed annually by the Payments Governance Board.\n\n10.3 Changes shall be announced to travelers at least 30 days in advance via the official support site and in-game notice."
+    }
+  ]
+}

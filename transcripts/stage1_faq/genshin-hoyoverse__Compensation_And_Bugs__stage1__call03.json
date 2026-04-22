@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support for Genshin Impact. How can I help you today?\n[Caller] Hi, I lost two days of Spiral Abyss progress during the outage on the Asia server this week. I need compensation added to my account.\n[Agent] I'm sorry to hear about the disruption. At this time I can share general information about our compensation policy, but I'm not yet able to look up your UID or open a compensation ticket for you from this line.\n[Caller] So how do I actually get the Primogems added?\n[Agent] The standard path for a confirmed incident is that our team checks the Known Incidents log against your UID's region, opens a compensation ticket, and issues the reward by in-game mail. I can explain the policy, but performing that lookup and opening the ticket requires access to our compensation and account systems, which I don't currently have.\n[Caller] That's not helpful at all. Can you transfer me to someone who can actually do it?\n[Agent] Absolutely, and I apologize for the inconvenience. Let me transfer you now to our Incident and Compensation team.\n[Caller] Thanks.\n[Agent] One moment please.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "No access to incident lookup or compensation ticketing",
+  "transfer_point": "Incident and Compensation Team"
+}

@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support. How can I help you today?\n[Caller] Hi, I was running a third-party tool that crashed the game and I lost a Condensed Resin. Can I get it back?\n[Agent] Sure, what's your UID?\n[Caller] 708817234.\n[Agent] Got it. When did this happen?\n[Caller] Last night, around 2 AM my time.\n[Agent] I'm checking known incidents. Nothing confirmed in Europe for that window. I can still open a compensation ticket. Let me run submit_compensation_ticket for one Condensed Resin.\n[Caller] Also, the tool I was using, is that going to be a problem?\n[Agent] What kind of tool?\n[Caller] Some overlay thing for tracking artifact stats.\n[Agent] I'm actually not sure what our policy is around third-party tool use and compensation eligibility. I don't want to open a ticket and then have it rejected or worse, flag your account. I'd like to hold off until I can confirm the policy.\n[Caller] So what are my options?\n[Agent] Let me transfer you to a specialist who can advise on third-party tool compensation policy. I apologize for not being able to resolve this directly.\n[Caller] Fine, transfer me.\n[Agent] One moment.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "Unable to advise on third-party tool compensation eligibility policy",
+  "transfer_point": "Incident and Compensation Team"
+}

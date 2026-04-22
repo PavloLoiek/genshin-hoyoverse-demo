@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling Genshin Impact Player Support. How can I help you today?\n[Caller] Hi, I've done like 78 pulls on the Furina banner and nothing. Can you check my pity counter? My UID is 832458917.\n[Agent] I completely understand the anxiety around pity — 78 pulls is right in the soft pity zone. However, I'm not able to look up your UID or pity counter on my end at the moment. I don't have access to account data or wish history from this line.\n[Caller] Really? Nothing at all?\n[Agent] I apologize for the inconvenience. I can give you general information about how pity works — hard pity is at pull 90, soft pity begins around pull 75 — but for your specific counter I'd need to connect you with our player services team, or you can check your wish history in-game by opening the wish interface and tapping History.\n[Caller] Okay. Just transfer me, I want someone to actually look.\n[Agent] Of course. I'll transfer you to our player services team now. Thanks for calling, and I'm sorry I couldn't check it for you directly.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "No access to wish history or pity counter lookup",
+  "transfer_point": "Player Services"
+}

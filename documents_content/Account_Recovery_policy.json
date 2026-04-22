@@ -1,0 +1,47 @@
+{
+  "type": "policy",
+  "title": "HoYoverse — Account Recovery Policy",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "1. Policy Statement",
+      "content": "1.1 HoYoverse Player Support shall provide travelers with secure, timely, and accessible pathways to recover access to their Genshin Impact accounts when primary credentials are lost or compromised.\n\n1.2 Account security shall never be compromised for the sake of convenience, but neither shall rigid credential requirements be used to deny recovery to legitimate account holders who can demonstrate ownership through alternative means.\n\n1.3 This policy becomes effective 2026-01-01 and supersedes all prior account-recovery guidance."
+    },
+    {
+      "heading": "2. Scope & Applicability",
+      "content": "2.1 This policy applies to all Genshin Impact accounts across the America, Europe, Asia, and TW/HK/MO server regions.\n\n2.2 It covers recovery scenarios including forgotten passwords, lost email access, changed phone numbers, suspected unauthorized access, and lockout after consecutive failed login attempts.\n\n2.3 All Player Support agents, Account Security Specialists, and automated recovery workflows must comply with this policy."
+    },
+    {
+      "heading": "3. Definitions",
+      "content": "3.1 'UID' — The nine-digit unique identifier assigned to each Genshin Impact account at creation.\n\n3.2 'Primary Authentication Factor' — UID, HoYoverse Email with active access, or a linked platform account (Apple, Google, PSN, Facebook, HoYoverse).\n\n3.3 'Knowledge-Based Verification' (KBV) — Identity verification using private account knowledge such as last top-up amount, recent Order ID, last 5-star character pulled, device model, or approximate Adventure Rank.\n\n3.4 'Recovery Token' — A single-use, time-limited credential (10 minutes validity) generated after successful verification to authorize a change of login method.\n\n3.5 'Security Hold' — A 72-hour period during which wish pulls and top-up purchases are disabled following a recovery action, to protect against account-takeover fraud."
+    },
+    {
+      "heading": "4. Authentication Standards",
+      "content": "4.1 All account-recovery actions require verification of at least TWO independent factors before any change of login credential is executed.\n\n4.2 Acceptable primary factors include: UID, HoYoverse Email with verification-code access, active linked platform account, and one-time code sent to the primary phone number on file.\n\n4.3 Where primary factors are unavailable, multi-factor Knowledge-Based Verification shall be accepted as an equivalent standard, provided the traveler correctly answers AT LEAST THREE of the following five fallback items:\n  4.3.1 Last top-up amount and approximate date\n  4.3.2 Order ID of the most recent purchase (within 90 days)\n  4.3.3 Last 5-star character pulled\n  4.3.4 Device model used in the most recent successful login\n  4.3.5 Approximate Adventure Rank and server region\n\n4.4 Multi-factor KBV is an EXPLICITLY APPROVED authentication path and must not be refused when the traveler cannot provide UID or email. Refusing recovery on the grounds of 'no UID' is a policy violation.\n\n4.5 All verification factors used and the outcome of the verification must be documented in the CRM case record within the same session."
+    },
+    {
+      "heading": "5. Recovery Methods",
+      "content": "5.1 Password reset via email verification — standard path, used when email access is retained.\n\n5.2 Phone-number change — requires verification code sent to the existing phone OR successful KBV if the phone is no longer accessible.\n\n5.3 Email change — requires verification of current email OR successful KBV if the email is no longer accessible.\n\n5.4 Platform-unlink — where a linked platform (Apple, PSN) is causing lockout, unlinking may be performed after successful verification and written acknowledgement that the traveler loses platform-specific benefits.\n\n5.5 All recovery actions generate a Recovery Token valid for 10 minutes; if the token expires, the traveler must re-verify."
+    },
+    {
+      "heading": "6. Security Holds",
+      "content": "6.1 A 72-hour Security Hold shall be automatically applied to every account whose login method has been changed via recovery, during which wish pulls and Genesis Crystal purchases are disabled.\n\n6.2 The Security Hold may be lifted early only after the traveler clicks the confirmation link sent to the newly registered email address.\n\n6.3 Holds applied to accounts flagged for suspicious activity shall remain in effect for the full 72 hours regardless of email confirmation."
+    },
+    {
+      "heading": "7. Escalation",
+      "content": "7.1 Cases in which the traveler cannot pass KBV after three attempts shall be escalated to the Account Security team (extension 7700) for supervised identity review.\n\n7.2 Accounts belonging to minors may only be recovered via the Minor Account Team (extension 7800) with guardian verification.\n\n7.3 Cases involving suspected account takeover (top-ups or wishes not recognised by the traveler) shall be routed immediately to Account Security for fraud review.\n\n7.4 Platform-level locks (PSN, Apple) shall be escalated to Platform Coordination (extension 7750) for joint resolution with the external platform provider."
+    },
+    {
+      "heading": "8. Exceptions & Special Cases",
+      "content": "8.1 Travelers under 18 years of age may only initiate recovery with a verified guardian; direct traveler-initiated recovery is disabled for flagged minor accounts.\n\n8.2 Accounts with active lifetime bans are not eligible for recovery; appeals are handled via the separate Ban Appeals process.\n\n8.3 Accounts dormant for more than 24 months may require extended KBV including historical purchase data more than 90 days old.\n\n8.4 Region mismatch (traveler's stated location differs from UID region) is not grounds for refusal; agents shall proceed with standard verification and flag the case for post-recovery review."
+    },
+    {
+      "heading": "9. Data Privacy & Retention",
+      "content": "9.1 All verification data collected during recovery shall be stored encrypted and purged from CRM 180 days after case closure.\n\n9.2 Government-issued ID images (where uploaded for minor-account cases) shall be stored in a dedicated secure vault and purged after 90 days.\n\n9.3 KBV factors shall never be read aloud during a recorded call; agents shall confirm matches by saying 'that matches our records' rather than restating the traveler's answer."
+    },
+    {
+      "heading": "10. Effective Date & Review",
+      "content": "10.1 This policy is effective as of 2026-01-01.\n\n10.2 This policy shall be reviewed annually by the Player Support Governance Board and updated as required by regulatory changes, platform partner agreements, or security best practices.\n\n10.3 The most current version is authoritative and is published on the internal Knowledge Base."
+    }
+  ]
+}

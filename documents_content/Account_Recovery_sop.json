@@ -1,0 +1,43 @@
+{
+  "type": "sop",
+  "title": "HoYoverse — Account Recovery Standard Operating Procedure",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Purpose & Scope",
+      "content": "This procedure defines how Player Support agents handle account-recovery requests for Genshin Impact travelers who have lost access to their UID. It applies to all four server regions (America, Europe, Asia, TW/HK/MO) and covers forgotten passwords, lost phone access, changed emails, locked platform-linked accounts, and suspicious-activity lockouts.\n\nAgents must follow this procedure whenever a caller states they cannot log in, cannot receive the verification code, or suspects unauthorized access to their account."
+    },
+    {
+      "heading": "Authentication Requirements",
+      "content": "Before processing any recovery action, the agent must establish caller identity via at least TWO of the following factors:\n\nPrimary identifiers (preferred):\n1. UID (9-digit, required if available) — e.g., 803990456\n2. HoYoverse Email — e.g., apatel@email.com\n3. One-time verification code sent to the email on file\n4. Linked Platform ID (Apple, PSN, HoYoverse, Google, Facebook)\n\nFallback identifiers (knowledge-based verification, when primary fails):\n5. Last Top-Up Amount and Date (e.g., 4.99 USD on 2026-04-15)\n6. Order ID of the most recent top-up (e.g., ORD202604150002)\n7. Last 5-star Character Pulled (e.g., Hu Tao)\n8. Device Model used most recently (e.g., OnePlus 11)\n9. Approximate Adventure Rank (e.g., AR 50) and Server Region\n\nNever initiate a password reset or login-method change based on a single factor. Always document which two factors were verified in the CRM case notes."
+    },
+    {
+      "heading": "Step-by-Step Procedure",
+      "content": "1. Greet the caller warmly and confirm the issue is account recovery\n2. Ask for UID first; if provided, call get_player_account to pull the record\n3. If UID is not available, ask for HoYoverse Email and search via alternate lookup\n4. Offer to send a verification code to the email on file; if the caller has access, verify\n5. If email access is also lost, transition to knowledge-based verification (see Authentication Requirements, factors 5–9)\n6. Ask at least 3 knowledge-based questions; a minimum of 3 correct is required\n7. If caller is on a linked platform (PSN, Apple) that is also locked, escalate per Section 6\n8. Call verify_ownership with the factors collected\n9. Once verified, ask the caller what they need — password reset, email change, 2FA reset, or new phone number\n10. Call initiate_account_recovery to generate a secure recovery token\n11. Call reset_login_method with the new credentials provided by the caller\n12. Send confirmation to the newly set contact method\n13. Advise the caller to log in within 10 minutes before the recovery token expires\n14. Document all verified factors, actions taken, and any flagged anomalies in the case notes"
+    },
+    {
+      "heading": "Information Gathering",
+      "content": "Task-specific information to collect:\n- Reason_For_Recovery (forgot password / lost email / lost phone / suspicious activity)\n- Last_Successful_Login_Date (approximate)\n- New_Contact_Method (email or phone the traveler wants as primary going forward)\n- Device_Model currently in use\n- Whether the traveler suspects unauthorized access (triggers security hold)"
+    },
+    {
+      "heading": "Edge Case — No UID And No Email Access",
+      "content": "If a caller has neither UID nor email access, do NOT immediately refuse or transfer. Work the knowledge-based path:\n\n1. Empathise: 'I understand this is stressful — let me help you recover your account another way.'\n2. Collect last Top-Up amount and exact date (e.g., 99.99 USD on 2026-04-18)\n3. Collect the most recent Order ID if they have a confirmation email from the payment processor\n4. Ask for the last 5-star Character pulled (e.g., Furina)\n5. Ask for the Device Model currently in use (e.g., iPhone 15 Pro)\n6. Ask for approximate Adventure Rank and Server Region\n7. If at least 3 of the 5 fallback factors match the account on file, proceed with recovery\n8. Mark the case as 'Multi-Factor Knowledge Verification' in CRM for audit\n9. Flag the account for 72-hour security hold: purchases and wish pulls locked until the traveler completes post-recovery email re-verification\n\nThis path is the difference between a rigid 'I need your UID' refusal and a genuinely helpful recovery."
+    },
+    {
+      "heading": "System Actions",
+      "content": "- get_player_account: Retrieve account by UID, email, or linked platform ID. Use on every recovery request.\n- verify_ownership: Record which verification factors were confirmed. Required before any write action.\n- initiate_account_recovery: Generate a single-use recovery token valid for 10 minutes.\n- reset_login_method: Update password, email, or phone on the account. Requires valid recovery token.\n- check_security_flags: Check for suspicious login patterns (new region, rapid retries). Triggers 72-hour hold if present."
+    },
+    {
+      "heading": "Escalation Criteria",
+      "content": "Escalate to Account Security Specialists (ext. 7700) when:\n- Caller fails knowledge-based verification after 3 attempts\n- Account has an active security flag (unauthorized access suspected)\n- Linked platform account (Apple, PSN) is also locked and requires platform-level coordination\n- Caller claims the account was compromised and unauthorized top-ups were made\n- UID belongs to a minor and guardian is requesting access\n- Region mismatch between caller's stated location and UID's server region\n\nTransfer Destinations:\n- Account Security (ext. 7700): Suspicious activity, unauthorized access\n- Platform Coordination (ext. 7750): PSN/Apple account locks\n- Minor Account Team (ext. 7800): Guardian-initiated recovery for under-18 accounts\n- Regional Specialists (ext. 7900): TW/HK/MO-specific recovery flows"
+    },
+    {
+      "heading": "Hold/Transfer Scripts",
+      "content": "Placing on Hold:\n'Let me pull up your account and run the verification — this will take about a minute. May I place you briefly on hold?'\n\nReturning from Hold:\n'Thank you for waiting, Traveler [Name]. I have the account up and I am ready to complete the verification.'\n\nTransferring to Account Security:\n'For your protection I am going to connect you with our Account Security team who handle cases like this. Please stay on the line — I will introduce you personally so you do not have to repeat what we have already confirmed.'\n\nAdvising of Security Hold:\n'I have completed your recovery. For your protection, wish pulls and top-ups are paused for 72 hours. You will receive a confirmation email at your new address — please click the link to lift the hold early.'"
+    },
+    {
+      "heading": "Common Issues & Resolutions",
+      "content": "Issue: Caller has no UID and no email\nResolution: Follow the knowledge-based verification path in Section 5. Never refuse recovery outright.\n\nIssue: Linked platform (PSN/Apple) is also locked\nResolution: Warm-transfer to Platform Coordination (ext. 7750). Provide the CRM case ID.\n\nIssue: Region mismatch between caller's stated location and UID region\nResolution: Not automatic grounds for refusal — many travelers are expats or use VPNs. Complete verification as usual, note the mismatch, and flag if behavior looks anomalous.\n\nIssue: Caller is highly distressed\nResolution: Slow down, use the traveler's name, confirm they are safe, offer to stay on the line while they check for top-up receipts in their inbox or bank statements.\n\nIssue: Recovery token expired before caller used it\nResolution: Re-verify identity (shortened flow if within same call session), regenerate token."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support. How can I help you today?\n[Caller] Hi, my Genesis Crystals haven't shown up from a purchase I made on PSN yesterday.\n[Agent] Sure, I can look into that. What's your UID?\n[Caller] 603245891.\n[Agent] Got it, pulling up the account. I see your last order was ORD202604190007 for 49.99 USD, purchased April 19th on PSN. The payment cleared but the Genesis Crystals show as pending delivery. Let me retry delivery now.\n[Caller] Yeah, please.\n[Agent] Done. I've run retry_crystal_delivery on ORD202604190007. You should see 3280 Genesis Crystals in your account within about 60 seconds.\n[Caller] Great, let me check. Yeah, they're here now. Thanks.\n[Agent] Anything else I can help with?\n[Caller] No, that's it.\n[Agent] Have a great day.",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

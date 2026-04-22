@@ -1,0 +1,43 @@
+{
+  "type": "sop",
+  "title": "HoYoverse — Top-Up and Refund Standard Operating Procedure",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Purpose & Scope",
+      "content": "This procedure defines how Player Support agents handle payment issues for Genshin Impact travelers: delayed Genesis Crystal delivery, duplicate charges, unauthorized purchases, refund requests, and Minor Account Protection Policy (MAPP) cases.\n\nPayment calls vary widely in emotional temperature — a traveler missing Crystals is mildly annoyed, while a parent reporting their child's unauthorized purchases can be distressed. Adjust tone accordingly."
+    },
+    {
+      "heading": "Authentication Requirements",
+      "content": "Adult account holder (standard):\n1. UID (required)\n2. HoYoverse Email on file (required)\n3. Order ID from the disputed purchase (e.g., ORD202604180001)\n4. Last four digits of payment method used (e.g., card ending 4478)\n\nGuardian calling about minor's account (MAPP pathway):\n1. Guardian's full legal name\n2. Child's UID (if known) OR registered email on the child's account\n3. Child's date of birth\n4. Government-issued photo ID (uploaded via secure portal after call)\n5. Last four digits of the payment method used for the disputed charge(s)\n\nDo not discuss purchase details or issue any refund without full verification."
+    },
+    {
+      "heading": "Step-by-Step Procedure — Standard Top-Up Issue",
+      "content": "1. Greet the traveler and confirm the payment concern\n2. Authenticate using UID, email, Order ID, and last four of payment\n3. Call get_player_account to retrieve the account\n4. Call get_order_status using the Order ID\n5. If status is PAID but Crystals not delivered, call retry_crystal_delivery\n6. If retry fails after 2 attempts, call initiate_refund and advise the traveler of timelines\n7. If the traveler reports a duplicate charge, confirm by comparing Order IDs and timestamps\n8. For accidental Welkin Moon double-purchase within 24 hours, refund the second transaction as a goodwill exception\n9. Confirm the refund amount and destination (original payment method)\n10. Provide a refund ticket number and expected timeline (3–5 business days for card, up to 10 for bank)\n11. Document the issue, actions taken, and resolution in the CRM"
+    },
+    {
+      "heading": "Step-by-Step Procedure — Minor Account Protection Policy",
+      "content": "The MAPP pathway applies when a guardian reports unauthorized purchases on a minor's account (under 18).\n\n1. Open the call with empathy: 'I'm sorry this happened — we will help you resolve it.'\n2. Collect Guardian's full name and relationship to the child\n3. Collect the child's UID or email\n4. Collect the child's date of birth\n5. Collect last four of the payment method used\n6. Call get_player_account to confirm the account exists and is flagged (or flag it now) as a minor account\n7. Call get_order_status for each disputed transaction\n8. Advise: guardian ID upload is required — send the secure-link upload URL to the guardian's email while still on the call\n9. Call verify_guardian once the ID is uploaded and matches the payment method name\n10. Call initiate_refund for each unauthorized transaction, flagged MAPP_Expedited\n11. Walk the guardian through enabling Parental Controls in the Account Settings menu while on the call\n12. Confirm total refund amount, timeline (5–7 business days), and ticket number\n13. Send a follow-up email with a summary and links to additional Parental Controls resources\n14. Document every step and attach the ID verification reference in CRM"
+    },
+    {
+      "heading": "Information Gathering",
+      "content": "Task-specific fields:\n- Order_Amount and Currency (e.g., 99.99 USD)\n- TopUp_Package purchased (e.g., 6480 Genesis Crystals, Welkin Moon, Battle Pass Premium)\n- Payment_Method (credit card / PayPal / PlayStation wallet / Apple ID / Google Play)\n- Order_ID (e.g., ORD202604170012)\n- Date_Of_Purchase\n- Guardian_Verification status (only for MAPP cases)"
+    },
+    {
+      "heading": "System Actions",
+      "content": "- get_player_account: Retrieve account, minor flag, and purchase history.\n- get_order_status: Look up a specific Order ID to confirm processor status and delivery status.\n- retry_crystal_delivery: Re-attempt Genesis Crystal delivery when payment succeeded but Crystals did not arrive.\n- initiate_refund: Open a refund ticket. Accepts reason codes (DELIVERY_FAILED, DUPLICATE, MAPP, UNAUTHORIZED).\n- verify_guardian: Records guardian ID verification status. Required before MAPP refunds.\n- enable_parental_controls: Turn on daily spending caps and in-app purchase restrictions."
+    },
+    {
+      "heading": "Escalation Criteria",
+      "content": "Escalate to Payments Team (ext. 7400) when:\n- Refund amount exceeds 500 USD\n- Guardian ID fails verification\n- Traveler disputes a charge older than 90 days\n- Payment processor has already issued a chargeback\n- Multiple unauthorized purchases across 3+ transactions\n- Traveler suspects account-takeover fraud (transfer to Account Security, ext. 7700)\n\nTransfer Destinations:\n- Payments Team (ext. 7400): Large refunds, complex billing issues\n- Minor Account Team (ext. 7800): MAPP cases requiring senior review\n- Account Security (ext. 7700): Suspected fraud / account takeover\n- Regulatory Liaison (ext. 7950): Traveler threatens regulator complaint"
+    },
+    {
+      "heading": "Hold/Transfer Scripts",
+      "content": "Placing on Hold:\n'Let me check the order status and payment processor record — this will take about two minutes. May I place you briefly on hold?'\n\nReturning from Hold:\n'Thanks for holding. I have the full purchase record. Here is what I found and what we can do...'\n\nMAPP Opening Script (for distressed guardians):\n'I am so sorry this happened. We have a specific process for exactly this situation — the Minor Account Protection Policy — and I am going to walk you through it step by step. First, can I take down a couple of details so we can look up the account?'\n\nParental Controls Walkthrough:\n'While we finalize the refund, let me help you enable Parental Controls so this cannot happen again. I will stay on the line while you open the app. Go to Settings... Account... Parental Controls...'"
+    },
+    {
+      "heading": "Common Issues & Resolutions",
+      "content": "Issue: Payment succeeded but Genesis Crystals not delivered\nResolution: Run retry_crystal_delivery. If retry fails, refund and advise traveler to retry purchase.\n\nIssue: Duplicate Welkin Moon purchase within 24 hours\nResolution: Refund the second purchase as a one-time goodwill exception. Recommend enabling purchase confirmation prompts.\n\nIssue: Parent reports 520 USD in unauthorized purchases by a 12-year-old over 3 days (edge case — Emma Williams UID 705532108)\nResolution: Express empathy. Invoke MAPP. Refund in full after guardian ID verification. Walk parent through Parental Controls setup. Do NOT cite 'all sales final' policy — the MAPP exception applies.\n\nIssue: Traveler disputed the charge with their bank before contacting us\nResolution: Explain that HoYoverse cannot double-refund. Ask traveler to withdraw the chargeback; if not possible, document in CRM and close the internal ticket.\n\nIssue: Traveler wants refund for a product used (Battle Pass progressed, Welkin Moon claimed)\nResolution: Generally not eligible under 'all sales final' clause. Escalate if traveler insists or is distressed."
+    }
+  ]
+}

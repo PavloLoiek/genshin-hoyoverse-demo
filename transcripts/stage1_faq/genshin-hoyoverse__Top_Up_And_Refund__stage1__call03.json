@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support for Genshin Impact. How can I help you today?\n[Caller] Hi, I bought a 99 dollar crystal pack this morning and the Genesis Crystals never showed up in my account. I need you to fix my order.\n[Agent] I'm very sorry to hear the crystals haven't arrived. Unfortunately at this time I'm only able to answer general questions about our policies and packages. I don't yet have access to look up individual orders or retry crystal delivery on your account.\n[Caller] Wait, seriously? I spent real money and you can't even check my order?\n[Agent] I completely understand how frustrating that is, and I apologize. I can tell you that delayed delivery of Genesis Crystals is a known scenario, and the standard path is for our team to look up the order by UID and Order ID and then retry the delivery. But to actually perform that lookup I'd need to transfer you to an agent with order system access.\n[Caller] Fine, just transfer me.\n[Agent] Of course. I'll transfer you now to our Billing and Top-Up team. Thank you for your patience and again, I'm sorry for the trouble.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "No access to order lookup or crystal delivery retry",
+  "transfer_point": "Billing and Top-Up Team"
+}

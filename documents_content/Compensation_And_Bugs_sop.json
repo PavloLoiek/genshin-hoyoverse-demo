@@ -1,0 +1,43 @@
+{
+  "type": "sop",
+  "title": "HoYoverse — Compensation and Bugs Standard Operating Procedure",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Purpose & Scope",
+      "content": "This procedure governs how Player Support agents handle compensation requests from travelers affected by server outages, game bugs, lost event progress, missed login rewards, and confirmed incidents. It applies across all four server regions.\n\nCompensation requests are a mix of objective (verifiable against known incidents) and subjective (emotional impact on the traveler's experience). Great agents balance fair application of the standard compensation table with proactive goodwill escalation where genuinely warranted."
+    },
+    {
+      "heading": "Authentication Requirements",
+      "content": "1. UID (required) — e.g., 832458917\n2. HoYoverse Email on file (required) — e.g., knakamura@email.com\n\nFor minor accounts or accounts under security hold, additional verification may apply per the Account Recovery SOP."
+    },
+    {
+      "heading": "Step-by-Step Procedure",
+      "content": "1. Greet the traveler and listen fully to the incident description\n2. Authenticate using UID and email\n3. Call get_player_account to confirm the account and region\n4. Call check_known_incidents filtered by the traveler's region and the incident date\n5. If a confirmed incident matches, apply the standard compensation from the policy table (Section 5)\n6. If no confirmed incident matches, ask the traveler for additional detail: date, approximate time, event name, lost items, whether screenshots are available\n7. For plausible but unconfirmed reports, call submit_compensation_ticket for manual review (3-business-day SLA)\n8. Call issue_ingame_mail to deliver the standard compensation immediately\n9. Assess whether goodwill escalation is warranted (Section 6 — edge cases)\n10. If escalating, call escalate_goodwill_review with justification\n11. Advise the traveler of the timeline for any escalation and the compensation already issued\n12. Thank the traveler for their patience and report; close with a warm sign-off"
+    },
+    {
+      "heading": "Standard Compensation Table",
+      "content": "For CONFIRMED server outages affecting the traveler's region:\n\n- Outage ≥ 1 hour: 60 Primogems\n- Outage ≥ 6 hours: 300 Primogems\n- Outage ≥ 12 hours: 300 Primogems + 3 Intertwined Fates\n\nFor confirmed bugs causing loss of:\n- Primogems / Mora: Refunded 1-to-1 with proof\n- Character / Weapon enhancement materials: Replaced 1-to-1 with proof\n- Event currency: Replaced based on confirmed event participation logs\n\nFor missed login rewards due to server unavailability: Replaced automatically for the affected period.\n\nAll standard compensation is issued via in-game mail within 24 hours."
+    },
+    {
+      "heading": "Goodwill Escalation — When To Go Above The Table",
+      "content": "The standard compensation table is a FLOOR, not a ceiling. Agents should escalate for additional goodwill compensation when:\n\n- The traveler's lost progress affected a TIME-SENSITIVE event (Spiral Abyss reset, Battle Pass Season deadline, limited-time event milestone)\n- The traveler is a loyal long-term account (AR 55+ and lifetime_spend > 1000 USD) and the incident disproportionately impacted them\n- The outage overlapped with a major character banner rotation (wishing prevented)\n- The traveler shows screenshots / server logs supporting claims beyond the standard\n\nEdge case example — Incident INC202604161:\nKaito Nakamura (UID 832458917, Asia region, AR 60) lost two days of Spiral Abyss progress during the 18-hour April 16–17 Asia outage. Standard compensation is 300 Primogems + 3 Intertwined Fates. Agent should additionally:\n- Escalate for 60 Primogems per missed daily commission (2 days = additional 60 Primogems)\n- Issue a written in-game mail apology referencing INC202604161 by name\n- Offer a direct re-entry grace period for the Season Pass milestone\n- Note the goodwill rationale in the case\n\nStandard should not be applied mechanically when the human cost is clearly higher."
+    },
+    {
+      "heading": "Incident Verification",
+      "content": "Every compensation request must begin with check_known_incidents:\n- Parameters: region, date_start, date_end\n- Returns: matching incident records including incident_id, duration, standard_compensation\n\nIf the request does NOT match a confirmed incident, do not refuse outright. Collect:\n- Incident_Date and approximate time\n- Event_Name affected\n- Lost_Items (Primogems, Mora, materials, characters)\n- Screenshot_Provided (yes/no)\n- Device and platform\n\nSubmit via submit_compensation_ticket for manual review. Advise the traveler of the 3-business-day SLA."
+    },
+    {
+      "heading": "System Actions",
+      "content": "- get_player_account: Retrieve account snapshot.\n- check_known_incidents: Check for confirmed incidents matching region and date range.\n- submit_compensation_ticket: Open a manual-review ticket when no confirmed incident matches.\n- issue_ingame_mail: Issue Primogems, Fates, materials, or an apology letter via in-game mail.\n- escalate_goodwill_review: Flag a case for senior review to approve above-standard compensation."
+    },
+    {
+      "heading": "Escalation Criteria",
+      "content": "Escalate when:\n- Goodwill compensation requested exceeds agent's issuance limit (3 Intertwined Fates / 300 Primogems)\n- Third-party tool use suspected (not eligible for compensation — transfer to Anti-Cheat team, ext. 7600)\n- Traveler claims compensation for an incident affecting a different region than their UID\n- Systemic bug report requiring engineering investigation\n- Traveler is threatening regulatory complaint or public escalation\n\nTransfer Destinations:\n- Goodwill Team (ext. 7150): Additional compensation beyond standard\n- Anti-Cheat (ext. 7600): Suspected third-party tool use\n- Engineering Liaison (ext. 7500): Confirmed bug needing developer attention\n- Retention Team (ext. 7250): High-churn-risk escalation"
+    },
+    {
+      "heading": "Common Issues & Resolutions",
+      "content": "Issue: Traveler cites a known incident and wants standard compensation\nResolution: Verify via check_known_incidents, issue via issue_ingame_mail. Communicate specifically which incident (e.g., 'INC202604161') so the traveler feels seen.\n\nIssue: Traveler's issue not tied to confirmed incident\nResolution: Submit for manual review via submit_compensation_ticket. Do NOT promise compensation until review completes.\n\nIssue: Traveler provides screenshot of bug (e.g., duplicate character sold by accident)\nResolution: If the bug is confirmed in the known-bugs registry, restore the item. If not, submit for engineering review.\n\nIssue: Third-party tool use led to account issue\nResolution: Not eligible for compensation. Transfer to Anti-Cheat (ext. 7600). Maintain neutral, non-accusatory tone.\n\nIssue: Traveler feels 300 Primogems is insufficient given their loss (edge case)\nResolution: Do not defensively cite the table. Listen, validate, escalate for goodwill review if warranted (see Section 6). Offer the additional goodwill items yourself if within your authority."
+    }
+  ]
+}

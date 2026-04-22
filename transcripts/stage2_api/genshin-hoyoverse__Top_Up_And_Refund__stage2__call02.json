@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support. How can I help you today?\n[Caller] Hi, this is about my daughter's account. She spent money on Genesis Crystals without asking and I want a refund.\n[Agent] Okay, I can process that. What's the UID on the account?\n[Caller] 705532108.\n[Agent] Looking it up. I see UID 705532108, registered to Emma Williams. The last order was ORD202604170012 for 520 USD on April 17th. Would you like me to refund that order?\n[Caller] Yes, the whole 520.\n[Agent] Processing. I've run initiate_refund on ORD202604170012 for 520 USD. The refund is approved and will return to the original payment method in 5 to 7 business days. Your reference number is CMP9921.\n[Caller] Oh, that was easier than I expected. Thank you.\n[Agent] You're welcome. Anything else?\n[Caller] No, that's all.\n[Agent] Have a good day.",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

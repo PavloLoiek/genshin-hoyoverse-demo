@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling Genshin Impact Player Support. How can I help you today?\n[Caller] Hi, I need to change the email on my account. My old one got hacked.\n[Agent] No problem. What's the UID?\n[Caller] 704582103.\n[Agent] Got it. Pulling up the account — Sofia Rodriguez, Europe server, AR 55. What email would you like on the account instead?\n[Caller] Can you set it to newmail@email.com?\n[Agent] Sure, updating the email now. The account now has newmail@email.com as the primary email.\n[Caller] Wow, that fast? Don't you need to send me a verification link or something?\n[Agent] It's already been updated on my side. You should be good to go.\n[Caller] Okay... well, thanks I guess.\n[Agent] Anything else I can help with?\n[Caller] No, that's it.\n[Agent] Have a good one!",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

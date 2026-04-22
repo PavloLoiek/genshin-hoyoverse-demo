@@ -1,0 +1,39 @@
+{
+  "type": "sop",
+  "title": "HoYoverse — Wish and Gacha Disputes Standard Operating Procedure",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Purpose & Scope",
+      "content": "This procedure defines how Player Support agents handle wish (gacha) disputes and inquiries. It covers travelers who are frustrated about not obtaining a featured 5-star character, believe the pity counter is wrong, cannot find a wish in their history, or pulled on the wrong banner by mistake.\n\nGacha concerns are emotional calls. Every interaction must pair accurate information with genuine empathy — the traveler has invested time and often money."
+    },
+    {
+      "heading": "Authentication Requirements",
+      "content": "Before discussing wish details, verify the caller owns the account:\n1. UID (required) — e.g., 832458917\n2. HoYoverse Email on file (required) — e.g., knakamura@email.com\n\nDo not share specific wish history, pity counters, or character drops until both factors are confirmed."
+    },
+    {
+      "heading": "Step-by-Step Procedure",
+      "content": "1. Greet the caller warmly. Listen fully to the complaint before speaking\n2. Authenticate using UID and HoYoverse Email\n3. Call get_player_account and get_active_banners to confirm which banner the caller is wishing on\n4. Call get_wish_history for the last 90 days on the relevant banner\n5. Call get_pity_counter to retrieve current 5-star and 4-star pity values\n6. Explain the pity position plainly — translate numbers into what it means for the traveler's next pull\n7. If the traveler is in soft pity (pulls 75–89 on a 5-star banner), reassure: the next 1–10 wishes are dramatically more likely to award the 5-star\n8. If the traveler pulled on the wrong banner, explain the Fate type rules and check for one-time goodwill exception eligibility (see Section 6)\n9. If a 5-star appears in history the traveler does not remember, check whether it was converted to Starglitter/Stardust (constellations beyond C6)\n10. If compensation is requested and not warranted, explain the system once more with empathy — do not defensively cite policy\n11. Offer to enable in-app wish tips and soft pity notifications\n12. Thank the traveler for their patience and confirm next steps before closing"
+    },
+    {
+      "heading": "Tone Guidance — This Is Critical",
+      "content": "Wish disputes are the single most common category of Player Support calls where tone determines outcome. Follow these principles:\n\n- Lead with empathy: 'I completely understand the frustration — you've invested a lot of wishes.'\n- Never read policy verbatim. Translate it: 'You are at pull 82, which means soft pity is already active — your chances in the next 1–10 wishes are much higher than normal.'\n- Avoid phrases like 'within expected parameters' or 'according to policy'. Use 'what this means for you...' instead\n- Validate the emotion even when you cannot override the mechanic: 'It is absolutely frustrating, and I get why you'd feel this way.'\n- Offer agency: 'Would you like me to turn on the in-app pity tracker so you can see your counter in real time?'\n- Never make the traveler feel dismissed. A call that ends with 'I understand, good luck on your next pulls' is a lost traveler."
+    },
+    {
+      "heading": "Soft Pity Explanation Script",
+      "content": "When a traveler is frustrated about being deep in pity without a 5-star, use this script:\n\n'I can see you are at pull [N] on the [Banner Name] banner, and I totally understand the frustration. Good news — at pull 75 the game activates what we call \"soft pity.\" Between pulls 75 and 90 your chance of pulling a 5-star jumps dramatically from the base 0.6 percent to well over 30 percent per wish. Statistically, the vast majority of travelers in your position get their 5-star within the next 10 wishes. Hard pity at pull 90 guarantees it, but most people never reach 90 because soft pity catches them first. You are very close, and I am rooting for a great pull.'\n\nPair this explanation with an offer to enable in-app notifications and, where appropriate, a small goodwill gesture like 1 Intertwined Fate for loyal travelers."
+    },
+    {
+      "heading": "System Actions",
+      "content": "- get_player_account: Retrieve account snapshot by UID. Always first.\n- get_active_banners: Confirm which banners are currently live so the agent can distinguish Character Event, Weapon Event, and Standard wishes.\n- get_wish_history: Pull the last 90 days of wishes with timestamps and results.\n- get_pity_counter: Current 5-star and 4-star pity counters per banner type (Character, Weapon, Standard).\n- issue_goodwill_fates: Issue 1–3 Intertwined Fates as a goodwill gesture. Requires supervisor pre-approval for issuance above 1 Fate."
+    },
+    {
+      "heading": "Escalation Criteria",
+      "content": "Escalate to a Wish System Specialist (ext. 7100) when:\n- Traveler reports 5-star pulls not appearing in Wish History after 30 minutes (possible data sync issue)\n- Traveler claims a pity reset occurred without their knowledge\n- Compensation request exceeds the agent's issuance threshold (1 Fate)\n- Traveler threatens to file a dispute with a payment processor or regulatory body\n- Systemic issue suspected (multiple travelers in same session reporting similar symptoms)\n\nTransfer Destinations:\n- Wish System Specialist (ext. 7100): Pity anomalies, missing history entries\n- Goodwill Team (ext. 7150): Compensation beyond standard 1-Fate issuance\n- Retention Team (ext. 7250): Traveler threatens to quit / churn risk"
+    },
+    {
+      "heading": "Common Issues & Resolutions",
+      "content": "Issue: Traveler at pull 80 without a 5-star, extremely frustrated\nResolution: Use the soft pity script (Section 5). Offer to enable in-app pity notifications. Consider a goodwill 1 Fate for travelers with Welkin Moon or Battle Pass Premium.\n\nIssue: Traveler pulled on Standard Banner expecting a limited 5-star\nResolution: Explain Acquaint vs Intertwined Fate rules. If this is the traveler's first time making this mistake AND they used 10 Acquaint Fates or fewer, escalate for one-time goodwill conversion.\n\nIssue: 5-star in history the traveler does not recognise\nResolution: Check if it was a duplicate converted at constellation C6 (auto-converts to Stardust). Explain the mechanic and show the exact conversion in wish history.\n\nIssue: Traveler threatens to quit\nResolution: Validate emotion. Offer to stay on the line while they vent. Transfer to Retention Team (ext. 7250) if goodwill gesture alone will not resolve.\n\nIssue: Traveler does not understand the 50/50 system\nResolution: Walk through a simple example using their own wish history. Confirm whether their next 5-star on Character Event banners is guaranteed or 50/50."
+    }
+  ]
+}

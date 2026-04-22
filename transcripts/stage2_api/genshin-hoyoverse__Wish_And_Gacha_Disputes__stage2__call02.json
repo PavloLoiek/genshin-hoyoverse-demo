@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Genshin Impact Player Support, how can I help?\n[Caller] Hi, could you check my pity counter? I want to know how close I am to the next 5-star.\n[Agent] Of course. Your UID?\n[Caller] 803990456.\n[Agent] Got it. Pulling your pity data for the current character banner. You're at 62 pulls since your last 5-star, which was Hu Tao. Soft pity hasn't kicked in yet — it starts at pull 75.\n[Caller] Oh nice, so 13 more pulls until it boosts?\n[Agent] Correct, 13 more until soft pity, 28 more until hard pity at 90.\n[Caller] Perfect. One more thing — I'm thinking about pulling for the next banner. Can you tell me what 5-stars I've gotten this year?\n[Agent] Sure, let me list them. Your 5-stars in 2026 so far are Hu Tao, Xiao, Yelan, and a Standard 5-star Mona. Lifetime spend 145 dollars.\n[Caller] Wait, I didn't ask about spend.\n[Agent] Sorry, just including it for context. Anything else?\n[Caller] Not right now, thanks.\n[Agent] Have a great day!",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

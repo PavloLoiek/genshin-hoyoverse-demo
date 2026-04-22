@@ -1,0 +1,43 @@
+{
+  "type": "policy",
+  "title": "HoYoverse — Minor Account Protection Policy (Standalone)",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "1. Purpose",
+      "content": "1.1 This document consolidates the Minor Account Protection Policy (MAPP) provisions applicable to Genshin Impact accounts registered to travelers under 18 years of age.\n\n1.2 MAPP provides protective pathways for guardians, refund eligibility for unauthorized purchases, and mandatory Parental Controls safeguards.\n\n1.3 This policy becomes effective 2026-01-01 and is incorporated by reference into the Top-Up and Refund Policy (see Section 5 of that policy)."
+    },
+    {
+      "heading": "2. Scope & Applicability",
+      "content": "2.1 MAPP applies to any Genshin Impact account whose registered date of birth indicates the traveler is under 18 years of age at the time of the event in question.\n\n2.2 MAPP also applies where the guardian demonstrates that a minor used the account, even if the registered DOB indicates an adult (e.g., a minor using a parent's account).\n\n2.3 MAPP is available to travelers and guardians in all four server regions. Regional consumer-protection laws may grant additional rights beyond MAPP; those additional rights apply concurrently."
+    },
+    {
+      "heading": "3. Guardian Identity Verification",
+      "content": "3.1 Before any MAPP refund is processed, the guardian must provide:\n  3.1.1 Full legal name\n  3.1.2 Relationship to the minor\n  3.1.3 Child's UID or registered email on the account\n  3.1.4 Child's date of birth\n  3.1.5 Government-issued photo ID (passport, driver's licence, national ID) uploaded via the secure document portal\n  3.1.6 Last four digits of the payment method used for the disputed transactions\n\n3.2 ID verification is typically completed within 2 hours of upload by the Trust and Safety team.\n\n3.3 Where the guardian name on the ID does not match the name on the payment method, additional documentation (e.g., marriage certificate, shared-address proof) may be requested."
+    },
+    {
+      "heading": "4. Refund Eligibility for Minors",
+      "content": "4.1 Full refund is available for unauthorized purchases made on a minor account, subject to:\n  4.1.1 Successful guardian identity verification per Section 3\n  4.1.2 The purchases were made without guardian consent\n  4.1.3 The guardian contacts Player Support within 180 days of the disputed transaction\n\n4.2 MAPP refunds shall be issued to the original payment method within 5 business days for cards and 10 business days for bank transfers.\n\n4.3 MAPP refunds are NOT subject to the 'all sales final' clause in the Top-Up and Refund Policy.\n\n4.4 Example: guardian Helen Williams (mother of Emma Williams, UID 705532108) reports 520 USD in unauthorized purchases over three days in April 2026 (orders including ORD202604170012). After ID verification and meeting Section 4.1 criteria, all four purchases in the disputed window are refunded in full."
+    },
+    {
+      "heading": "5. Parental Controls — Mandatory Enablement",
+      "content": "5.1 As a condition of MAPP refund approval, the guardian must agree to enable Parental Controls on the minor's account prior to disbursement.\n\n5.2 Available Parental Controls:\n  5.2.1 Daily spending cap (default 0 USD, adjustable)\n  5.2.2 In-app purchase block (blanket disable)\n  5.2.3 Daily playtime limit (default 2 hours, adjustable)\n  5.2.4 Purchase confirmation requiring guardian approval on each transaction\n\n5.3 Agents shall walk guardians through enablement during the MAPP call itself. A follow-up email with a step-by-step guide is also sent.\n\n5.4 If the guardian refuses to enable Parental Controls, the MAPP refund may still be processed, but the account shall be flagged 'MAPP-Declined-Controls' and any subsequent MAPP refund request will be subject to senior review."
+    },
+    {
+      "heading": "6. Repeat Cases",
+      "content": "6.1 MAPP may be invoked for the same account at most twice within a 12-month period.\n\n6.2 Third and subsequent MAPP claims within 12 months require supervisor review and may be denied if Parental Controls were available but not enabled after prior MAPP action.\n\n6.3 Travelers who turn 18 during the 180-day MAPP window may still invoke MAPP for purchases made while under 18."
+    },
+    {
+      "heading": "7. Data Handling",
+      "content": "7.1 Guardian ID images are stored in a dedicated secure vault with restricted access and purged 90 days after case closure.\n\n7.2 Case notes retain the ID verification reference and outcome but NOT the ID image itself.\n\n7.3 All MAPP-related data is processed in accordance with applicable minors' privacy regulations (COPPA in the United States, GDPR-K in the EU, and equivalents in other regions)."
+    },
+    {
+      "heading": "8. Escalation",
+      "content": "8.1 Minor Account Team (extension 7800): all MAPP cases exceeding 500 USD or involving 3+ transactions.\n\n8.2 Trust and Safety (extension 7850): guardian ID verification exceptions.\n\n8.3 Regulatory Liaison (extension 7950): cases involving external regulatory bodies or formal legal requests."
+    },
+    {
+      "heading": "9. Effective Date",
+      "content": "9.1 This standalone MAPP policy is effective as of 2026-01-01.\n\n9.2 The policy is reviewed annually in conjunction with the main Top-Up and Refund Policy by the Payments Governance Board."
+    }
+  ]
+}

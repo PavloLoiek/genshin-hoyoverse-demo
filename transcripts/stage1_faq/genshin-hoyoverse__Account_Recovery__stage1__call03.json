@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling Genshin Impact Player Support. How can I help you today?\n[Caller] Hi, I got locked out of my account — five wrong passwords, and now it won't let me in. I need someone to reset it. My UID is 708817234.\n[Agent] I'm really sorry that happened. Unfortunately, I'm not currently able to access account systems or initiate account recovery on my end. I can share general information about how the recovery process works, but I can't perform any actions on an account right now.\n[Caller] Wait — you can't help me get back into my account at all?\n[Agent] I apologize for the inconvenience. At the moment I only have access to general program information. Account actions like password resets, lockout reviews, or identity verification have to be handled by our account services team. I can offer to transfer you, or you can submit a ticket through the in-game or website support form.\n[Caller] This is frustrating. Just transfer me, please.\n[Agent] Of course. Let me route you to our account services team now. Thank you for your patience, and I'm sorry I couldn't resolve this for you directly.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "No access to account systems or recovery workflows",
+  "transfer_point": "Account Services"
+}

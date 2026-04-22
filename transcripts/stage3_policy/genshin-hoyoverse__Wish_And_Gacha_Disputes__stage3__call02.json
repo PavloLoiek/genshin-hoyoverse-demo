@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling Genshin Impact Player Support. How can I help you today?\n[Caller] I accidentally pulled on the wrong banner. I wanted to pull for the character banner but I hit the Standard Wish instead. Can you move my pulls over?\n[Agent] I can help with this inquiry. Let me first verify your account. Could you provide your UID and email on file?\n[Caller] 704582103. Email is srodriguez at email dot com.\n[Agent] Verified. Per our Wish System Policy, Standard Wishes and Event Wishes are separate pools with independent pity counters, and per the terms of service, all wishes are final. Pulls cannot be transferred between banners. Additionally, Acquaint Fates used on the Standard Wish are non-refundable.\n[Caller] So I'm just out of luck?\n[Agent] Per policy, yes. I understand this is disappointing. Per our disclaimer, the banner selected before committing a wish is displayed prominently on screen, and the wish is final once confirmed.\n[Caller] Yeah, I know. I was rushing. Alright.\n[Agent] Is there anything else?\n[Caller] No. Thanks.\n[Agent] Thank you for calling.",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

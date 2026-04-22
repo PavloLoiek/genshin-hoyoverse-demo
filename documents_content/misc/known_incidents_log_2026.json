@@ -1,0 +1,31 @@
+{
+  "type": "misc",
+  "title": "HoYoverse — Known Incidents Log 2026",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "Purpose",
+      "content": "This log records all confirmed server incidents affecting Genshin Impact accounts in 2026, organised chronologically. Player Support agents shall reference this log via check_known_incidents when processing compensation requests. Each entry includes incident_id, affected region, start and end times, duration, root cause, and standard compensation issued.\n\nThe log is maintained by the Incident Response team and updated within 2 hours of incident confirmation. It is retained for 7 years per the Compensation and Bugs Policy."
+    },
+    {
+      "heading": "Incident INC202604161 — Asia Region Database Outage",
+      "content": "incident_id: INC202604161\nRegion: Asia\nStart: 2026-04-16 22:00 UTC\nEnd: 2026-04-17 16:00 UTC\nDuration: 18 hours\nStatus: Resolved, compensation issued\n\nRoot cause: Database maintenance was initiated outside the scheduled maintenance window due to an operator error. A replication lag cascade caused Asia-region login and save-state services to become unresponsive. Failover to the standby cluster was delayed by an unrelated configuration drift.\n\nImpact: All Asia-region UIDs (first digit 8) were unable to log in or sync progress for the duration. Daily commissions, Spiral Abyss runs, event progress, and login rewards that would have occurred during the window were lost. Wish pulls attempted during the window either did not go through or returned errors.\n\nAffected travelers in seed data: Kaito Nakamura (UID 832458917), Yuki Tanaka (UID 832118007), Aisha Patel (UID 803990456).\n\nStandard compensation (per Compensation and Bugs Policy Section 4.1.3, outage ≥ 12 hours): 300 Primogems + 3 Intertwined Fates, issued via in-game mail on 2026-04-17 at 20:00 UTC and claimable for 30 days.\n\nGoodwill escalations approved: agents may add up to 60 Primogems per missed daily commission (maximum 120 for the 2-day window) plus a written in-game-mail apology referencing INC202604161 for travelers with a Season Pass milestone or Spiral Abyss reset affected. Goodwill Team (extension 7150) pre-approved blanket authorization for this incident."
+    },
+    {
+      "heading": "Incident INC202601281 — Europe Region Partial Login Failure",
+      "content": "incident_id: INC202601281\nRegion: Europe\nStart: 2026-01-28 09:30 UTC\nEnd: 2026-01-28 11:45 UTC\nDuration: 2.25 hours\nStatus: Resolved, compensation issued\n\nRoot cause: A faulty deployment to the Europe authentication service caused intermittent login failures for approximately 40 percent of Europe-region travelers. Rollback completed within 2 hours and 15 minutes.\n\nImpact: Affected travelers experienced login failures, retry loops, and some partial session drops. No save-state corruption.\n\nStandard compensation (outage ≥ 1 hour): 60 Primogems, issued via in-game mail."
+    },
+    {
+      "heading": "Incident INC202602141 — America Region Wish Display Bug",
+      "content": "incident_id: INC202602141\nRegion: America\nStart: 2026-02-14 18:00 UTC\nEnd: 2026-02-14 21:00 UTC\nDuration: 3 hours\nStatus: Resolved, compensation issued\n\nRoot cause: A rendering bug caused the Wish History screen to display stale data for America-region travelers after the mid-season banner rotation. No actual wish data was lost; display only.\n\nImpact: Travelers perceived missing wishes, leading to a spike in Wish and Gacha Disputes calls. Actual pity counters and wish records were intact server-side.\n\nStandard compensation: 60 Primogems issued via in-game mail as goodwill, even though no data was lost. Issued in recognition of confusion caused."
+    },
+    {
+      "heading": "Incident INC202603051 — Global Top-Up Processor Disruption",
+      "content": "incident_id: INC202603051\nRegion: Global\nStart: 2026-03-05 14:00 UTC\nEnd: 2026-03-05 15:30 UTC\nDuration: 1.5 hours\nStatus: Resolved, compensation issued\n\nRoot cause: Upstream payment processor experienced a brief outage affecting all regions. Purchases made during the window either failed cleanly or were delayed in delivery.\n\nImpact: Approximately 2 percent of top-up transactions were affected. Delivery retries completed automatically within 4 hours of processor recovery. Duplicate charges (where captured) were refunded automatically within 24 hours.\n\nStandard compensation (outage ≥ 1 hour on a payment-impacting service): 60 Primogems issued to affected UIDs via in-game mail."
+    },
+    {
+      "heading": "Guidance for Agents",
+      "content": "When a traveler reports an issue, always run check_known_incidents with the traveler's region and the relevant date range. If a match is found:\n1. Reference the specific incident_id in your response — 'That matches INC202604161, the April 16–17 Asia outage.'\n2. Issue the documented standard compensation via issue_ingame_mail.\n3. Assess goodwill-escalation criteria per Compensation and Bugs Policy Section 5.\n4. Document the incident_id reference in the CRM case.\n\nIf no incident matches, do not refuse the claim outright. Submit via submit_compensation_ticket for manual review with a 3-business-day SLA."
+    }
+  ]
+}

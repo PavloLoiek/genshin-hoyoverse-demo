@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: genshin-hoyoverse
+    runtime: docker
+    plan: free
+    region: oregon
+    rootDir: output/genshin-hoyoverse
+    dockerfilePath: ./Dockerfile
+    envVars: []
+    autoDeploy: false

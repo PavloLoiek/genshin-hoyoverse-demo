@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoYoverse — Genshin Impact Player Support FAQ</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #F5F4EC;
+    color: #1C2340;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #4A5BCA; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1C2340 0%, #4A5BCA 100%);
+    color: #FFFFFF;
+    padding: 0;
+    border-bottom: 3px solid #F7B955;
+  }
+  .header-top {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 22px 20px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+  }
+  .logo .accent {
+    color: #F7B955;
+  }
+  .logo span {
+    color: #DCD9C8;
+    font-weight: 400;
+    font-size: 13px;
+    display: block;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .header-contact {
+    font-size: 13px;
+    text-align: right;
+    color: #DCD9C8;
+  }
+  .header-contact strong { color: #F7B955; font-weight: 600; }
+
+  /* Navigation */
+  .nav {
+    background: rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(247,185,85,0.25);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .nav a {
+    display: block;
+    padding: 12px 18px;
+    color: #DCD9C8;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav a:hover, .nav a.active {
+    background: rgba(247,185,85,0.12);
+    color: #F7B955;
+    text-decoration: none;
+  }
+
+  /* Hero */
+  .hero {
+    background: #F5F4EC;
+    color: #1C2340;
+    text-align: center;
+    padding: 56px 20px 48px;
+    border-bottom: 1px solid #DCD9C8;
+  }
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #1C2340;
+    letter-spacing: -0.5px;
+  }
+  .hero .tagline {
+    font-size: 14px;
+    color: #4A5BCA;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  .hero p {
+    font-size: 16px;
+    color: #4a5068;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* Main Content */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 44px 20px 72px;
+  }
+
+  /* Category Section */
+  .faq-category {
+    margin-bottom: 44px;
+  }
+  .faq-category-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1C2340;
+    border-bottom: 3px solid #F7B955;
+    padding-bottom: 10px;
+    margin-bottom: 22px;
+    letter-spacing: -0.3px;
+  }
+
+  /* FAQ Item */
+  .faq-item {
+    margin-bottom: 16px;
+    border: 1px solid #DCD9C8;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 0 1px 2px rgba(28,35,64,0.03);
+  }
+  .faq-question {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1C2340;
+    padding: 14px 20px;
+    background: #FAFAF4;
+    border-left: 4px solid #4A5BCA;
+  }
+  .faq-answer {
+    padding: 14px 20px 16px 24px;
+    font-size: 14.5px;
+    color: #3a4157;
+    line-height: 1.7;
+  }
+
+  /* Table of Contents */
+  .toc {
+    background: #FFFFFF;
+    border: 1px solid #DCD9C8;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 44px;
+    box-shadow: 0 1px 2px rgba(28,35,64,0.03);
+  }
+  .toc h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1C2340;
+    margin-bottom: 14px;
+  }
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 24px;
+  }
+  .toc li { margin-bottom: 4px; }
+  .toc a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #1C2340;
+    padding-left: 16px;
+    position: relative;
+    font-weight: 500;
+  }
+  .toc a::before {
+    content: "\25B8";
+    position: absolute;
+    left: 0;
+    color: #F7B955;
+  }
+  .toc a:hover { color: #4A5BCA; }
+
+  /* Info callout */
+  .callout {
+    background: rgba(74,91,202,0.06);
+    border-left: 4px solid #4A5BCA;
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: #1C2340;
+  }
+
+  /* Footer */
+  .footer {
+    background: #1C2340;
+    color: #DCD9C8;
+    padding: 40px 20px 24px;
+    border-top: 3px solid #F7B955;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+  }
+  .footer-brand { flex: 1 1 280px; }
+  .footer-brand .logo { font-size: 22px; margin-bottom: 10px; }
+  .footer-brand .logo span { font-size: 11px; }
+  .footer-brand p {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 8px;
+    color: #a8aec5;
+  }
+  .footer-contact { flex: 1 1 280px; }
+  .footer-contact h3 {
+    color: #F7B955;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+  }
+  .footer-contact p {
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #DCD9C8;
+  }
+  .footer-contact strong { color: #FFFFFF; }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 28px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(247,185,85,0.2);
+    text-align: center;
+    font-size: 12px;
+    color: #8a90a8;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header-top { flex-direction: column; text-align: center; }
+    .header-contact { text-align: center; }
+    .nav-inner { justify-content: center; }
+    .nav a { padding: 10px 12px; font-size: 12px; }
+    .hero h1 { font-size: 28px; }
+    .faq-category-title { font-size: 19px; }
+    .toc ul { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo">HoYo<span class="accent">verse</span><span>Genshin Impact — Player Support</span></div>
+    <div class="header-contact">
+      <strong>Support Hotline:</strong> +1 650-555-0199<br>
+      <strong>Email:</strong> support@hoyoverse-demo.com
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#">Home</a>
+      <a href="#">Game Status</a>
+      <a href="#">Top-Up</a>
+      <a href="#">Events</a>
+      <a href="#" class="active">Player Support</a>
+      <a href="#">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="tagline">Player Support — Teyvat</div>
+  <h1>Frequently Asked Questions</h1>
+  <p>Answers to common questions about wishes, top-ups, account recovery, and more. For personalised help, reach our 24/7 support team.</p>
+</section>
+
+<!-- Main Content -->
+<main class="main">
+
+  <div class="callout">
+    <strong>Need urgent help?</strong> Travelers can reach our 24/7 hotline at +1 650-555-0199 or email <a href="mailto:support@hoyoverse-demo.com">support@hoyoverse-demo.com</a>. Please have your UID ready.
+  </div>
+
+  <!-- Table of Contents -->
+  <div class="toc">
+    <h2>Browse by Category</h2>
+    <ul>
+      <li><a href="#wish-system">Wish System</a></li>
+      <li><a href="#currency-and-purchases">Currency and Purchases</a></li>
+      <li><a href="#account-and-servers">Account and Servers</a></li>
+      <li><a href="#safety-and-compliance">Safety and Compliance</a></li>
+      <li><a href="#gameplay-basics">Gameplay Basics</a></li>
+      <li><a href="#events-and-support">Events and Support</a></li>
+    </ul>
+  </div>
+
+  <!-- Wish System -->
+  <section class="faq-category" id="wish-system">
+    <h2 class="faq-category-title">Wish System</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Wish System Basics — how do wishes work?</div>
+      <div class="faq-answer">Wishes are Genshin Impact's gacha mechanic. You spend Fates to wish on a Banner for a chance at characters and weapons. Acquaint Fates are used on the Standard Wish banner, while Intertwined Fates are used on Character Event and Weapon Event banners. A single wish costs one Fate; you can also perform ten wishes at once. Drop rates for 5-star items are base 0.6 percent before soft pity activates.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Pity Counter — what is it and how does it work?</div>
+      <div class="faq-answer">The pity counter tracks how many wishes you have made since your last 5-star or 4-star pull on a given banner type. On Character Event banners, a 5-star is guaranteed by pull 90 (hard pity), and a 4-star by pull 10. The counter persists between banners of the same type, so you do not lose progress when a banner ends. Travelers like Aisha Patel (UID 803990456) can check their current pity from the in-game Wish History screen.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Soft Pity Explained — when does it activate?</div>
+      <div class="faq-answer">Soft pity is the sharp increase in 5-star drop rate that begins around pull 75 on Character Event banners. Between pulls 75 and 89 your chance of a 5-star rises dramatically each wish, so most players receive their guaranteed 5-star well before hitting the hard-pity cap at 90. If you are at pull 80 without a 5-star, you are inside soft pity territory and the character will typically drop within the next 1–10 wishes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Guaranteed 5-Star — what is the 50/50 system?</div>
+      <div class="faq-answer">When you win a 5-star on a Character Event banner, there is a 50 percent chance it is the featured character and 50 percent it is a Standard Wish character. If you lose the 50/50, your next 5-star on any Character Event banner is guaranteed to be the featured character. This guarantee carries over between banners of the same type.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Standard vs. Event Banner — what is the difference?</div>
+      <div class="faq-answer">The Standard Wish banner (Wanderlust Invocation) offers a permanent pool of 5-star characters and weapons and uses Acquaint Fates. Character Event and Weapon Event banners rotate every three weeks, feature a limited 5-star, and use Intertwined Fates. If you are after a specific limited-time character, wish on the Event banner — you will not find them in the Standard pool.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Weapon Banner Rules — how does Epitome Invocation work?</div>
+      <div class="faq-answer">The Weapon Event Wish (Epitome Invocation) uses the Epitomized Path system: you choose one of the two featured 5-star weapons, and if you win a 5-star that is not your chosen weapon, your Fate Points increase by one. At two Fate Points, your next 5-star weapon is guaranteed to be your chosen one. Hard pity for weapon banners is 80, and soft pity starts around pull 65.</div>
+    </div>
+  </section>
+
+  <!-- Currency and Purchases -->
+  <section class="faq-category" id="currency-and-purchases">
+    <h2 class="faq-category-title">Currency and Purchases</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Genesis Crystal Packages — what options are available?</div>
+      <div class="faq-answer">Genesis Crystals are the premium currency purchased with real money and convert 1-to-1 into Primogems in-game. Packages range from 60 Crystals for 0.99 USD up to 6,480 Crystals for 99.99 USD. First-time purchases on each package tier grant a one-time double bonus. Players like Kaito Nakamura (UID 832458917) frequently purchase the 6,480 Crystal pack for major banners.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Welkin Moon Benefits — is the Blessing of the Welkin Moon worth it?</div>
+      <div class="faq-answer">The Blessing of the Welkin Moon is a 30-day subscription that costs 4.99 USD and grants 300 Genesis Crystals immediately, plus 90 Primogems each day you log in — for a total of 3,000 Primogems over 30 days. It offers the best value per US dollar of any top-up and can stack up to 30 unclaimed days at a time.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Battle Pass Contents — what does Gnostic Hymn include?</div>
+      <div class="faq-answer">The seasonal Battle Pass costs 9.99 USD (Gnostic Hymn) or 19.99 USD (Gnostic Chorus with 10 free tiers). Full completion rewards include 5 Intertwined Fates, a selectable 4-star event weapon of your choice, Primogems, Mora, character experience books, and enhancement ores. Each Battle Pass season lasts approximately six weeks and aligns with character banners.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">First Top-Up Bonus — what is the double-reward promo?</div>
+      <div class="faq-answer">Every Genesis Crystal package tier offers a one-time "First-Time Recharge Bonus" that doubles the number of Crystals you receive. The bonus resets with each unique package size, so purchasing the 60, 300, 980, 1980, 3280, and 6480 tiers all grant their own one-time double reward. This bonus can only be claimed once per package size per account.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Primogem vs. Genesis Crystal — what is the difference?</div>
+      <div class="faq-answer">Primogems are earned through gameplay, events, daily commissions, and Spiral Abyss rewards — they are free to obtain but slow to accumulate. Genesis Crystals are purchased with real money and convert into Primogems at a 1-to-1 ratio. Both are used to buy Fates for wishing, but only Primogems can be earned through play. A free-to-play traveler like Sofia Rodriguez (UID 704582103) relies exclusively on Primogems earned in-game.</div>
+    </div>
+  </section>
+
+  <!-- Account and Servers -->
+  <section class="faq-category" id="account-and-servers">
+    <h2 class="faq-category-title">Account and Servers</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Server Regions — how do I know which server I am on?</div>
+      <div class="faq-answer">Genshin Impact has four server regions: America, Europe, Asia, and TW/HK/MO. Your server is selected at account creation and cannot be changed — progress does not transfer between regions. The first digit of your UID identifies your region: 6 = America, 7 = Europe, 8 = Asia, 9 = TW/HK/MO. For example, UID 803990456 indicates an Asia-region account.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">UID Lookup — where can I find my UID?</div>
+      <div class="faq-answer">Your UID is a nine-digit number displayed in the bottom-right corner of the in-game screen at all times. You can also find it on the login screen, in your Paimon Menu, and on your HoYoLAB profile. Always include your UID when contacting support so our agents can locate your account quickly.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Account Linking — how do I link my HoYoverse account?</div>
+      <div class="faq-answer">You can link your in-game UID to a HoYoverse Account, Apple ID, Google Play, Facebook, Twitter, or PlayStation Network account from the Account Settings menu. Linking safeguards your progress and enables login on multiple devices. We strongly recommend linking at least two methods for redundancy. Players like Marcus Chen (UID 603245891) link both HoYoverse and PSN for cross-platform play.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Cross-Platform Progress — can I play on multiple devices?</div>
+      <div class="faq-answer">Yes. Your progress syncs across iOS, Android, Windows PC, and PlayStation 4/5 as long as you log in with the same linked account and play on the same UID's server region. Cloud saves update in real time. Please note: you cannot be logged in on two devices simultaneously — a new login will disconnect the earlier session.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Language Settings — can I change my game language?</div>
+      <div class="faq-answer">Yes. Text language can be changed in Paimon Menu → Settings → Language at any time. Voice-over language (English, Japanese, Korean, or Chinese) can also be switched independently and requires a small additional download. Changes apply after restarting the game.</div>
+    </div>
+  </section>
+
+  <!-- Safety and Compliance -->
+  <section class="faq-category" id="safety-and-compliance">
+    <h2 class="faq-category-title">Safety and Compliance</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Parental Controls — how can a guardian limit a child's spending?</div>
+      <div class="faq-answer">HoYoverse offers in-app Parental Controls that can set daily spending caps, restrict access to in-app purchases, and limit playtime per day. Guardians can enable these from Account Settings → Parental Controls after guardian identity verification. We strongly encourage guardians of minor travelers to enable these controls before any top-up activity occurs.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Minor Account Policy — what protections exist for minors?</div>
+      <div class="faq-answer">Under our Minor Account Protection Policy, accounts belonging to travelers under 18 are eligible for full refund on unauthorised purchases made without guardian consent. The guardian must provide government-issued ID, the child's date of birth, and the last four digits of the payment method used. Tickets are reviewed on an expedited basis.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Refund Policy — are Genesis Crystal purchases refundable?</div>
+      <div class="faq-answer">All Genesis Crystal purchases are final once the Crystals have been delivered to the account, except where required by law or where the Minor Account Protection Policy applies. Failed or delayed deliveries can always be refunded or retried free of charge. Duplicate charges identified within 14 days are refunded automatically once verified.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Ban Appeals — my account was suspended, what can I do?</div>
+      <div class="faq-answer">If you believe your account was suspended in error, you can submit a ban appeal at support@hoyoverse-demo.com with your UID, the date of suspension, and any relevant context. Appeals are reviewed within 7 business days by our Account Security team. Bans issued for confirmed use of third-party tools, account sharing, or fraudulent top-ups are generally not overturned.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Data Privacy — how is my personal data handled?</div>
+      <div class="faq-answer">HoYoverse collects only the data required to operate your account and comply with regional regulations. You can request a data export or deletion at any time by contacting privacy@hoyoverse-demo.com. Personal data is never sold to third parties. Full details are available in our Privacy Policy on the official website.</div>
+    </div>
+  </section>
+
+  <!-- Gameplay Basics -->
+  <section class="faq-category" id="gameplay-basics">
+    <h2 class="faq-category-title">Gameplay Basics</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Adventure Rank Rewards — what do I unlock as I level up?</div>
+      <div class="faq-answer">Adventure Rank (AR) ranges from 1 to 60 and unlocks new content at each milestone: co-op at AR 16, Spiral Abyss at AR 20, weekly bosses at AR 30, and World Level increases every several ranks. Each AR level up grants Primogems, Mora, and Hero's Wit experience books. Reaching AR 60 is the current account cap.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Daily Commissions — how do they work?</div>
+      <div class="faq-answer">From AR 12 onward, you receive four Daily Commissions per day from the Adventurers' Guild. Completing all four and claiming the bonus from Katheryne grants 60 Primogems, 20,000 Mora, and character or weapon experience books daily. Commissions reset at 04:00 server time each day.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Resin System — what is Original Resin?</div>
+      <div class="faq-answer">Original Resin is the daily activity energy used to claim rewards from Domains, weekly bosses, Ley Line Outcrops, and world bosses. You regenerate one Resin every eight minutes, up to a maximum of 160. Fragile Resin, earned from Spiral Abyss and events, can be used to instantly restore 60 Resin — a great way for time-limited travelers to stay efficient.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">World Level — how does it scale difficulty?</div>
+      <div class="faq-answer">World Level (WL 0–8) governs enemy difficulty and reward quality in the overworld. It automatically increases at set AR milestones (AR 20 → WL 2, AR 25 → WL 3, and so on). From WL 5 onward you may choose to temporarily lower your World Level if content feels too difficult. Drops scale accordingly.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Spiral Abyss — what are the rewards?</div>
+      <div class="faq-answer">The Spiral Abyss is the endgame rotating challenge mode unlocked at AR 20. Floors 1–8 are permanent, while Floors 9–12 (the "Abyssal Moon Spire") reset every two weeks with a new blessing and enemy lineup. Clearing Chamber 3 of each floor grants Primogems — a full clear of Floors 9–12 with all stars awards 600 Primogems per cycle.</div>
+    </div>
+  </section>
+
+  <!-- Events and Support -->
+  <section class="faq-category" id="events-and-support">
+    <h2 class="faq-category-title">Events and Support</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">Event Rewards Claim — where do my event rewards go?</div>
+      <div class="faq-answer">Most event rewards are distributed via in-game mail and must be claimed within 30 days before they expire. Log in and open the Mail icon in the upper-left of the Paimon Menu. If you are missing rewards from a confirmed event, contact support with your UID and the event name and we will investigate.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Compensation Policy — what compensation is issued for outages?</div>
+      <div class="faq-answer">For confirmed server outages, we issue standard compensation via in-game mail: 60 Primogems for outages of one hour or more, and 300 Primogems for outages of six hours or more. Extended outages of twelve hours or more receive 300 Primogems plus 3 Intertwined Fates. Additional goodwill compensation may be escalated for travelers whose event progress was significantly affected.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Known Incidents Page — where can I check current issues?</div>
+      <div class="faq-answer">Our Known Incidents page lists all confirmed server issues, maintenance windows, and their compensation status. For example, incident INC202604161 affected the Asia region on April 16–17, 2026, with an 18-hour outage caused by database maintenance outside the scheduled window. Affected travelers received 300 Primogems automatically via in-game mail.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Submit Ticket Channels — how do I contact support?</div>
+      <div class="faq-answer">Travelers can reach us three ways: (1) in-game via Paimon Menu → Feedback → Customer Service, (2) by email at support@hoyoverse-demo.com, or (3) by phone at our 24/7 hotline +1 650-555-0199. For fastest service, include your UID, server region, and a clear description of your issue. Response times average under two hours for in-game tickets.</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">HoYo<span class="accent">verse</span><span>Genshin Impact — Player Support</span></div>
+      <p>Travelers, welcome to Teyvat. This support portal is operated by HoYoverse Player Support and is available around the clock for every region.</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p><strong>Address:</strong> HoYoverse Player Support, 2261 Market Street Suite 4500, San Francisco, CA 94114</p>
+      <p><strong>Support Hotline:</strong> +1 650-555-0199 (24/7)</p>
+      <p><strong>Email:</strong> support@hoyoverse-demo.com</p>
+      <p><strong>Privacy Requests:</strong> privacy@hoyoverse-demo.com</p>
+      <p><strong>Hours:</strong> 24/7 Player Support</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 HoYoverse Player Support. Demo data — not affiliated with miHoYo Co. Ltd. or Cognosphere Pte. Ltd.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thanks for calling Genshin Impact Player Support. How can I help?\n[Caller] There's a 5-star in my wish history that I don't remember pulling. Raiden Shogun on March 2nd. I never got her.\n[Agent] OK, UID please?\n[Caller] 703321876.\n[Agent] Pulling that up. Yes, I see — Raiden Shogun on March 2, 2026, on the Character Event Wish.\n[Caller] That's impossible. I've never had Raiden. Can you check if someone else accessed my account?\n[Agent] I can only see the wish record. To check security events I'd need to escalate, but the wish itself is confirmed by the system.\n[Caller] So where is she?\n[Agent] I can check your character roster. One moment. I don't see Raiden Shogun on your roster. It's possible the character was sold for Stardust after the wish, but I can't confirm that from here.\n[Caller] I would never sell a 5-star. Something is wrong.\n[Agent] I understand. Unfortunately without escalation I can't tell you more. I'll make a note on the account. Is there anything else?\n[Caller] I guess not. This is really frustrating.\n[Agent] I understand. Have a good day.",
+  "mode": "inbound",
+  "ai_resolution": "No"
+}

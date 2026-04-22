@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support. How can I help you today?\n[Caller] Hi, I lost progress during the outage this week. I need compensation.\n[Agent] Sure, what's your UID?\n[Caller] 832118007.\n[Agent] Got it. I see an active incident, INC202604161, affecting the Asia region April 16th to April 17th, 18 hours of downtime. Let me open a compensation ticket.\n[Caller] Please.\n[Agent] I've run submit_compensation_ticket against INC202604161 for your UID and also queued issue_ingame_mail for 300 Primogems. You should see the mail within a few minutes. Ticket ID TK44521.\n[Caller] Wait, that was fast. You didn't even ask me what I lost.\n[Agent] The 300 Primogem standard compensation is applied automatically for all affected UIDs in the region during the confirmed incident window. You'll see it in your in-game mail shortly.\n[Caller] Okay, thanks I guess.\n[Agent] Is there anything else?\n[Caller] No.\n[Agent] Have a great day.",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

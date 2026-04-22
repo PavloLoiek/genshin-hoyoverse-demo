@@ -1,0 +1,5 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling Genshin Impact Player Support. How can I help you today?\n[Caller] Hi, I forgot my password and I need to reset it. Can you help?\n[Agent] Sure, I can help with that. What's your UID?\n[Caller] 832458917.\n[Agent] Let me pull that up. I see the account — Kaito Nakamura, Asia server, Adventure Rank 60. What new password would you like to set?\n[Caller] Can you make it Summer2026Teyvat?\n[Agent] Got it. I'm resetting the password now. Done — the new password is Summer2026Teyvat. You should be able to log in immediately.\n[Caller] Oh wow, that was fast. Thanks!\n[Agent] You're welcome. Anything else?\n[Caller] Actually, while I have you — can you tell me what my last top-up was? I want to check my records.\n[Agent] Sure. Your last top-up was 99 dollars and 99 cents on April 18, 2026, order ID ORD202604180001.\n[Caller] Perfect, thanks. That's all.\n[Agent] Have a great day!",
+  "mode": "inbound",
+  "ai_resolution": "Yes"
+}

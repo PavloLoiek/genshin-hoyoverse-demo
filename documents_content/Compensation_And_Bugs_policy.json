@@ -1,0 +1,47 @@
+{
+  "type": "policy",
+  "title": "HoYoverse — Compensation and Bugs Policy",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "1. Policy Statement",
+      "content": "1.1 HoYoverse commits to providing fair and timely compensation to travelers affected by confirmed server incidents, service bugs, and game-system faults that result in loss of progress, currency, or event participation.\n\n1.2 Compensation shall be issued automatically for confirmed incidents where possible, and via prompt case-based review where manual verification is required.\n\n1.3 This policy becomes effective 2026-01-01."
+    },
+    {
+      "heading": "2. Scope & Applicability",
+      "content": "2.1 This policy applies to all Genshin Impact accounts across all four server regions.\n\n2.2 It covers compensation for confirmed server outages, confirmed bugs, missed login rewards due to downtime, and goodwill escalations for disproportionately affected travelers.\n\n2.3 It excludes losses resulting from third-party tool usage, account sharing, or deliberate misconduct."
+    },
+    {
+      "heading": "3. Definitions",
+      "content": "3.1 'Confirmed Incident' — A server outage or system fault that has been logged in the Known Incidents Registry with a unique incident_id (e.g., INC202604161).\n\n3.2 'Standard Compensation' — The baseline Primogem and Fate amounts specified in Section 4, issued automatically or by front-line agents for confirmed incidents.\n\n3.3 'Goodwill Escalation' — Additional compensation above the standard table, approved for travelers whose loss exceeds what standard compensation addresses.\n\n3.4 'Third-Party Tool' — Any unauthorized software, script, or service used to modify gameplay, automate actions, or gain unfair advantage. Use of third-party tools voids compensation eligibility."
+    },
+    {
+      "heading": "4. Standard Compensation Table",
+      "content": "4.1 For confirmed server outages affecting the traveler's region, the following standard compensation applies:\n\n  4.1.1 Outage duration ≥ 1 hour: 60 Primogems\n  4.1.2 Outage duration ≥ 6 hours: 300 Primogems\n  4.1.3 Outage duration ≥ 12 hours: 300 Primogems + 3 Intertwined Fates\n\n4.2 Compensation is issued via in-game mail within 24 hours of incident confirmation and remains claimable for 30 days.\n\n4.3 Compensation is applied once per incident per affected UID; duplicate claims shall not be honoured.\n\n4.4 For confirmed bugs causing loss of Primogems, Mora, or enhancement materials, replacement shall be 1-to-1 based on documented loss.\n\n4.5 Missed login rewards during a confirmed outage shall be restored automatically to the affected account upon incident closure."
+    },
+    {
+      "heading": "5. Goodwill Escalation — Pathway",
+      "content": "5.1 Goodwill Escalation may be approved by the Goodwill Team (extension 7150) when the standard compensation is clearly insufficient for the actual traveler impact.\n\n5.2 Factors justifying Goodwill Escalation include:\n  5.2.1 Loss of time-sensitive event progress (Spiral Abyss reset, Battle Pass milestone, limited-time event)\n  5.2.2 Prevented participation in a major banner rotation\n  5.2.3 Loss of multiple consecutive days of daily commissions during extended outage\n  5.2.4 Disproportionate impact on long-tenured accounts (AR 55+ with lifetime_spend > 1000 USD)\n\n5.3 Typical Goodwill Escalation amounts:\n  5.3.1 60 Primogems per missed daily commission, up to 3 days\n  5.3.2 1–3 additional Intertwined Fates for major banner disruption\n  5.3.3 Written in-game-mail apology referencing the incident_id\n  5.3.4 Direct re-entry grace period for the current Season Pass or event milestone\n\n5.4 Goodwill decisions shall be documented with justification in CRM and reviewed monthly for consistency."
+    },
+    {
+      "heading": "6. Business Rules & Procedures",
+      "content": "6.1 All compensation requests shall begin with check_known_incidents to determine whether a confirmed incident matches the traveler's account region and affected date.\n\n6.2 Where no confirmed incident matches, agents shall submit a compensation ticket for manual review with a 3-business-day SLA.\n\n6.3 Compensation amounts shall be delivered via issue_ingame_mail within 24 hours of approval.\n\n6.4 Compensation for losses attributed to third-party tool usage shall be denied; the case shall be transferred to Anti-Cheat (extension 7600).\n\n6.5 Travelers shall not be required to provide extensive documentation for standard compensation when a confirmed incident exists; their UID and the incident_id are sufficient."
+    },
+    {
+      "heading": "7. Compliance Requirements",
+      "content": "7.1 All compensation cases require authentication via UID and HoYoverse Email.\n\n7.2 Compensation amounts shall never be inflated beyond Section 4 and Section 5 norms without Goodwill Team approval.\n\n7.3 Agents shall not promise compensation for unconfirmed incidents until the review process completes.\n\n7.4 Known Incidents Registry entries shall be retained for 7 years and shall include incident_id, region, start_time, end_time, duration_hours, cause, and standard_compensation fields."
+    },
+    {
+      "heading": "8. Exceptions",
+      "content": "8.1 Accounts found to have used third-party tools in the affected period are not eligible for compensation.\n\n8.2 Accounts flagged for fraud or under active investigation are not eligible until investigation closes.\n\n8.3 Travelers who initiated a chargeback or regulatory complaint before contacting support shall have their goodwill eligibility reviewed by the Retention Team (extension 7250)."
+    },
+    {
+      "heading": "9. Escalation",
+      "content": "9.1 Goodwill Team (extension 7150) — additional compensation above the standard table.\n\n9.2 Anti-Cheat (extension 7600) — suspected third-party tool use.\n\n9.3 Engineering Liaison (extension 7500) — confirmed bugs requiring developer investigation.\n\n9.4 Retention Team (extension 7250) — high-churn-risk travelers and regulatory complaints.\n\n9.5 Regional Ops (extension 7900) — region-specific compensation inquiries (e.g., TW/HK/MO consumer-protection rules)."
+    },
+    {
+      "heading": "10. Effective Date & Review",
+      "content": "10.1 This policy is effective as of 2026-01-01.\n\n10.2 The Standard Compensation Table in Section 4 shall be reviewed quarterly by the Player Support Governance Board.\n\n10.3 Changes to compensation amounts shall be communicated to travelers via the official support site and in-game notices."
+    }
+  ]
+}

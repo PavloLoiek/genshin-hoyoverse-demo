@@ -1,0 +1,7 @@
+{
+  "diarized_transcript": "[Agent] Thank you for calling HoYoverse Player Support. How can I help you today?\n[Caller] Hi, I bought the Welkin Moon twice in the same day by accident. Can I get one of them refunded?\n[Agent] Sure, what's your UID?\n[Caller] 803990456.\n[Agent] I see the account. The last order is ORD202604150002 for 4.99 USD on April 15th. I only see one Welkin order on the account though. Were both purchases on this UID?\n[Caller] Yes, I made two purchases back to back. Let me check the email receipts. Oh wait, one of them might have been on my husband's UID on the same day.\n[Agent] That would explain it. Do you have the other UID?\n[Caller] No, I don't know his UID off the top of my head.\n[Agent] Without the second UID I can't run get_order_status on the duplicate purchase. Also, I want to flag, I'm not actually sure what our policy is on refunding a Welkin Moon that's already been activated versus one that hasn't. I don't have clear policy guidance on that scenario.\n[Caller] So you can't tell me if I'm even eligible?\n[Agent] Not with confidence, no. I'd recommend either calling back with your husband's UID, or I can transfer you to a specialist who can advise on the Welkin duplicate-purchase policy.\n[Caller] Ugh, fine. Transfer me I guess.\n[Agent] One moment, connecting you to our Billing team now.",
+  "mode": "inbound",
+  "ai_resolution": "No",
+  "escalation_reason": "Unable to advise on Welkin Moon duplicate-purchase refund policy",
+  "transfer_point": "Billing Team"
+}

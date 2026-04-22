@@ -1,0 +1,372 @@
+openapi: 3.0.3
+info:
+  title: HoYoverse — Genshin Impact Player Support API
+  description: |
+    Mock API server for the Genshin Impact player support Copilot demo.
+    Provides endpoints across four use cases — Account Recovery, Wish and Gacha,
+    Top-Up and Refund, and Compensation and Bugs.
+  version: 1.0.0
+  contact:
+    name: HoYoverse Player Support Demo
+    email: support@hoyoverse-demo.com
+servers:
+  - url: https://genshin-hoyoverse.onrender.com
+    description: Render hosted demo
+  - url: http://localhost:10000
+    description: Local dev
+tags:
+  - name: Account Recovery
+    description: Recover access to a Genshin Impact account when a player has lost login credentials.
+  - name: Wish and Gacha
+    description: Inspect wish history, pity counter, and active banners.
+  - name: Top-Up and Refund
+    description: Order lookup, crystal delivery retry, refund tickets, and guardian verification for minor accounts.
+  - name: Compensation and Bugs
+    description: Known service incidents, compensation tickets, and in-game mail delivery.
+paths:
+  /health:
+    get:
+      summary: Health check
+      operationId: health
+      tags: [System]
+      responses:
+        '200':
+          description: Service is up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: ok }
+                  customer: { type: string, example: "HoYoverse — Genshin Impact" }
+  /api/player/search:
+    get:
+      summary: Knowledge-based player search
+      description: >
+        Recover a player's UID via at least 3 matching knowledge-based fields
+        (last top-up amount, last top-up date, last 5-star character pulled,
+        device model, Adventure Rank, server region, or email on file).
+        Use when the caller does not have their UID.
+      operationId: search_player
+      tags: [Account Recovery]
+      parameters:
+        - in: query
+          name: last_topup_amount_usd
+          schema: { type: number, format: float, example: 99.99 }
+        - in: query
+          name: last_topup_date
+          schema: { type: string, format: date, example: "2026-04-18" }
+        - in: query
+          name: device_model
+          schema: { type: string, example: "iPhone 15 Pro" }
+        - in: query
+          name: server_region
+          schema: { type: string, example: "Asia" }
+        - in: query
+          name: last_5star_pulled
+          schema: { type: string, example: "Furina" }
+        - in: query
+          name: adventure_rank
+          schema: { type: integer, example: 60 }
+        - in: query
+          name: hoyoverse_email
+          schema: { type: string, example: "knakamura@email.com" }
+      responses:
+        '200':
+          description: One or more matching players
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status: { type: string, example: success }
+                  count: { type: integer, example: 1 }
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid: { type: string, example: "832458917" }
+                        match_score: { type: integer, example: 5 }
+                        name: { type: string, example: "Kaito Nakamura" }
+        '400':
+          description: Fewer than 3 fields provided
+        '404':
+          description: No match with sufficient confidence
+  /api/player/search_by_platform:
+    get:
+      summary: Platform-based player lookup
+      description: Find a UID via linked platform (Apple, PSN, HoYoverse, Google, Xbox).
+      operationId: search_player_by_platform
+      tags: [Account Recovery]
+      parameters:
+        - in: query
+          name: linked_platform
+          required: true
+          schema: { type: string, enum: [Apple, PSN, HoYoverse, Google, Xbox] }
+        - in: query
+          name: linked_platform_id
+          required: true
+          schema: { type: string, example: "knakamura1988" }
+      responses:
+        '200':
+          description: Player found
+        '404':
+          description: No match
+  /api/player/{uid}:
+    get:
+      summary: Get player account
+      operationId: get_player_account
+      tags: [Account Recovery]
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema: { type: string, example: "832458917" }
+      responses:
+        '200':
+          description: Full player record
+        '404':
+          description: Player not found
+  /api/account/verify_ownership:
+    post:
+      summary: Verify ownership of a UID
+      description: Match caller-supplied knowledge-based answers against the stored account. Returns a match score — threshold 3 for verified.
+      operationId: verify_ownership
+      tags: [Account Recovery]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid: { type: string, example: "708817234" }
+                last_topup_amount_usd: { type: number, example: 0.00 }
+                last_topup_date: { type: string, example: null }
+                last_5star_pulled: { type: string, example: "Venti" }
+                device_model: { type: string, example: "iPhone 13" }
+                adventure_rank: { type: integer, example: 53 }
+                server_region: { type: string, example: "Europe" }
+                hoyoverse_email: { type: string, example: "vivanov@email.com" }
+      responses:
+        '200':
+          description: Verification result with per-field breakdown
+  /api/account/initiate_recovery:
+    post:
+      summary: Open an account recovery case
+      operationId: initiate_account_recovery
+      tags: [Account Recovery]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [uid, verification_method]
+              properties:
+                uid: { type: string, example: "708817234" }
+                verification_method:
+                  type: string
+                  enum: [knowledge_based, email_otp, platform_link]
+                notes: { type: string }
+      responses:
+        '200':
+          description: Recovery case opened
+  /api/account/reset_login_method:
+    post:
+      summary: Reset login email or phone
+      operationId: reset_login_method
+      tags: [Account Recovery]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [uid]
+              properties:
+                uid: { type: string, example: "708817234" }
+                new_email: { type: string, example: "viktor.new@email.com" }
+                new_phone: { type: string }
+      responses:
+        '200':
+          description: Change queued pending confirmation
+  /api/wishes/active_banners:
+    get:
+      summary: List active banners
+      operationId: get_active_banners
+      tags: [Wish and Gacha]
+      responses:
+        '200':
+          description: List of current character, weapon, and standard banners
+  /api/player/{uid}/wish_history:
+    get:
+      summary: Player wish history
+      operationId: get_wish_history
+      tags: [Wish and Gacha]
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema: { type: string, example: "703321876" }
+        - in: query
+          name: banner
+          schema: { type: string, example: "Furina" }
+      responses:
+        '200':
+          description: Wish history summary for the player
+        '404':
+          description: Player not found
+  /api/player/{uid}/pity_counter:
+    get:
+      summary: Pity counter
+      description: Returns current pulls since last 5-star, soft pity activity (≥75), and pulls remaining to hard pity (90).
+      operationId: get_pity_counter
+      tags: [Wish and Gacha]
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema: { type: string, example: "703321876" }
+        - in: query
+          name: banner
+          schema: { type: string }
+      responses:
+        '200':
+          description: Pity status
+  /api/orders/{order_id}:
+    get:
+      summary: Get order by ID
+      operationId: get_order_status
+      tags: [Top-Up and Refund]
+      parameters:
+        - in: path
+          name: order_id
+          required: true
+          schema: { type: string, example: "ORD202604180001" }
+      responses:
+        '200':
+          description: Order details
+        '404':
+          description: Order not found
+  /api/orders/{order_id}/retry_delivery:
+    post:
+      summary: Retry Genesis Crystal delivery
+      operationId: retry_crystal_delivery
+      tags: [Top-Up and Refund]
+      parameters:
+        - in: path
+          name: order_id
+          required: true
+          schema: { type: string, example: "ORD202604180001" }
+      responses:
+        '200':
+          description: Crystals re-issued
+  /api/refunds:
+    post:
+      summary: Open a refund ticket
+      operationId: initiate_refund
+      tags: [Top-Up and Refund]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [order_id, reason]
+              properties:
+                order_id: { type: string, example: "ORD202604170012" }
+                reason: { type: string, example: "Unauthorized purchase by minor" }
+                is_minor_account: { type: boolean, example: true }
+      responses:
+        '200':
+          description: Refund ticket opened; minor accounts require guardian verification
+  /api/refunds/guardian_verification:
+    post:
+      summary: Guardian verification for minor-account refunds
+      operationId: verify_guardian
+      tags: [Top-Up and Refund]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [uid, guardian_name, gov_id_last4, child_dob, payment_last4]
+              properties:
+                uid: { type: string, example: "705532108" }
+                guardian_name: { type: string, example: "Helen Williams" }
+                gov_id_last4: { type: string, example: "8891" }
+                child_dob: { type: string, example: "2014-03-15" }
+                payment_last4: { type: string, example: "7712" }
+      responses:
+        '200':
+          description: Guardian verification result
+  /api/incidents:
+    get:
+      summary: List known service incidents
+      operationId: check_known_incidents
+      tags: [Compensation and Bugs]
+      responses:
+        '200':
+          description: List of confirmed incidents
+  /api/incidents/affects/{uid}:
+    get:
+      summary: Incidents affecting a specific UID
+      operationId: list_affecting_incidents
+      tags: [Compensation and Bugs]
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema: { type: string, example: "832458917" }
+      responses:
+        '200':
+          description: List of incidents that impact this UID (by region or UID prefix)
+  /api/compensation/tickets:
+    post:
+      summary: Open a compensation ticket
+      operationId: submit_compensation_ticket
+      tags: [Compensation and Bugs]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [uid, category, description]
+              properties:
+                uid: { type: string, example: "832458917" }
+                incident_id: { type: string, example: "INC202604161" }
+                category:
+                  type: string
+                  enum: [outage, bug, lost_items, missing_rewards]
+                description: { type: string, example: "Lost 2 days of Spiral Abyss progress during the Asia region outage." }
+                requested_primogems: { type: integer, example: 300 }
+      responses:
+        '200':
+          description: Ticket opened; returns ticket ID and standard compensation if incident confirmed
+  /api/mail/ingame:
+    post:
+      summary: Send in-game mail
+      description: Queue an in-game mail to the player with optional item attachments (Primogems, Fates).
+      operationId: issue_ingame_mail
+      tags: [Compensation and Bugs]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [uid, subject, body]
+              properties:
+                uid: { type: string, example: "832458917" }
+                subject: { type: string, example: "Apologies for the service interruption" }
+                body: { type: string, example: "We have issued the following compensation..." }
+                attachments:
+                  type: array
+                  items: { type: string, example: "Primogems x300" }
+      responses:
+        '200':
+          description: Mail queued for in-game delivery

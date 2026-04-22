@@ -1,0 +1,43 @@
+{
+  "type": "policy",
+  "title": "HoYoverse — Wish and Gacha Disputes Policy",
+  "customer_name": "HoYoverse — Genshin Impact",
+  "sections": [
+    {
+      "heading": "1. Policy Statement",
+      "content": "1.1 HoYoverse commits to the transparent operation of the Wish (gacha) system in Genshin Impact and to the respectful, empathetic handling of traveler inquiries and disputes regarding wish outcomes.\n\n1.2 All published drop rates, pity counters, and banner mechanics shall operate as described in the in-game disclosure screens and on the official support site.\n\n1.3 This policy becomes effective 2026-01-01."
+    },
+    {
+      "heading": "2. Scope & Applicability",
+      "content": "2.1 This policy applies to all wish activity across Character Event Wish, Weapon Event Wish, Standard Wish, and time-limited Chronicled Wish banners.\n\n2.2 It governs agent behavior in disputes involving pity counters, 5-star drops, missing wish history entries, accidental banner selection, and conversion of duplicate 5-stars to Starglitter or Stardust.\n\n2.3 All Player Support agents, Wish System Specialists, and supervisory staff must comply with this policy."
+    },
+    {
+      "heading": "3. Pity System — Published Mechanics",
+      "content": "3.1 Character Event Wish banners operate on the following pity system:\n  3.1.1 Hard pity for 5-star: pull 90. A 5-star item is guaranteed at or before the 90th pull since the last 5-star.\n  3.1.2 Soft pity for 5-star: begins at approximately pull 75. Between pulls 75 and 89, the 5-star drop rate increases sharply above the base 0.6 percent.\n  3.1.3 Hard pity for 4-star: pull 10.\n  3.1.4 50/50 system: the first 5-star from a Character Event banner has a 50 percent chance of being the featured character. A loss guarantees the next 5-star on any Character Event banner will be the featured character.\n\n3.2 Weapon Event Wish (Epitome Invocation) operates on a modified system:\n  3.2.1 Hard pity for 5-star: pull 80.\n  3.2.2 Soft pity begins at approximately pull 65.\n  3.2.3 Epitomized Path: two Fate Points guarantee the chosen 5-star weapon.\n\n3.3 Standard Wish banner:\n  3.3.1 Hard pity for 5-star: pull 90.\n  3.3.2 Soft pity begins at approximately pull 75.\n  3.3.3 No featured-character guarantee; all 5-stars drop from the permanent pool."
+    },
+    {
+      "heading": "4. Business Rules — Dispute Handling",
+      "content": "4.1 Wish outcomes are deterministic based on the published RNG system; they shall not be altered or reversed except where HoYoverse confirms a technical fault.\n\n4.2 Wish history shall be available in-game for at least six months. Missing history entries within that window shall be treated as a potential data-sync issue and investigated.\n\n4.3 Duplicate 5-star characters at constellation C6 are automatically converted to Starglitter per the published rules. Travelers may not reverse this conversion.\n\n4.4 Travelers who wish on the wrong banner by accident are generally not eligible for Fate refunds; exceptions may be approved once per account lifetime for first-time mistakes involving 10 or fewer Fates, subject to supervisor approval.\n\n4.5 Goodwill compensation up to 1 Intertwined Fate may be issued by front-line agents without escalation, for cases where empathetic service warrants it; amounts above 1 Fate require supervisor approval."
+    },
+    {
+      "heading": "5. Empathy & Tone Standards (Compliance-Adjacent)",
+      "content": "5.1 Agents shall acknowledge the traveler's emotional state before citing any mechanic or policy.\n\n5.2 Reading the pity policy verbatim without empathetic framing is a documented tone violation, subject to QA review. Agents must translate numbers into what they mean for the traveler's next pull.\n\n5.3 Phrases such as 'your situation is within expected parameters' or 'the policy states' without additional context are prohibited as standalone responses. Agents shall use 'what this means for you' framing instead.\n\n5.4 Where a traveler is distressed or threatens to quit, the agent must offer continued engagement (e.g., enabling in-app pity tracker) and consider goodwill escalation.\n\n5.5 QA reviews shall specifically audit empathy and tone on wish-dispute calls; scores below 3.5/5 on empathy trigger coaching."
+    },
+    {
+      "heading": "6. Compliance Requirements",
+      "content": "6.1 Every wish-dispute case must be authenticated via UID and HoYoverse Email before any wish-history or pity-counter information is discussed.\n\n6.2 Agents shall not speculate about future wish outcomes (e.g., 'you will definitely get the character soon'). Permissible framing: 'statistically, most travelers in your position receive a 5-star within the next 10 wishes.'\n\n6.3 Any commitment of goodwill Fates must be logged in CRM with traveler consent recorded.\n\n6.4 All calls involving pity-related data are recorded and retained for 90 days for QA and dispute review."
+    },
+    {
+      "heading": "7. Exceptions & Special Cases",
+      "content": "7.1 Confirmed technical faults causing pity counter corruption or missing history entries shall result in full restoration of the affected wishes plus standard goodwill (1 Intertwined Fate).\n\n7.2 Travelers on Welkin Moon or Battle Pass Premium may be prioritized for goodwill consideration on close-to-hard-pity disputes.\n\n7.3 Accounts under active fraud review are not eligible for goodwill Fates until review is complete."
+    },
+    {
+      "heading": "8. Escalation",
+      "content": "8.1 Wish System Specialists (extension 7100) handle suspected data-sync issues and historical wish reconstruction.\n\n8.2 Goodwill Team (extension 7150) approves Fate issuance above the agent-level threshold.\n\n8.3 Retention Team (extension 7250) handles calls where the traveler threatens to churn or requests account deletion.\n\n8.4 Regulatory Liaison (extension 7950) handles cases involving complaints to external bodies regarding gacha mechanics."
+    },
+    {
+      "heading": "9. Effective Date & Review",
+      "content": "9.1 This policy is effective as of 2026-01-01.\n\n9.2 Pity numbers and drop rates are subject to change with advance notice; agents shall always use in-system values rather than quoting from memory.\n\n9.3 This policy shall be reviewed annually by the Player Support Governance Board."
+    }
+  ]
+}
