@@ -29,7 +29,7 @@ Each upload makes the AI agent smarter. Narrate what works, what fails, and why 
 5. **SAY:** *"The agent now knows every policy and every FAQ topic. Ask it about pity, about Welkin Moon, about refunds — it knows. But ask it to actually recover Viktor's account — it can't, because it has no system access yet."*
 
 ### Stage 2 — "Upload API specs"
-6. Upload `manual_upload/2_api_specs/genshin-hoyoverse_api.yaml`.
+6. Upload `manual_upload/2_api_specs/genshin-hoyoverse_api__TRY-FIRST__concise-13KB.yaml` (if OCP rejects it, fall back to `__TRY-SECOND__full-autogen-21KB.yaml`).
 7. Test: "my UID is 832458917, what's my pity?" → bot calls `/api/player/832458917/pity_counter` → returns 15 pulls, no soft pity.
 8. Test: "my son spent 520 dollars on my credit card, refund please" → bot processes the refund WITHOUT guardian verification or Minor Account check.
 9. **SAY:** *"Now the agent has system access. Watch — it pulls the pity counter correctly. But notice it didn't verify identity before sharing account data, and it's processing a 520-dollar refund without checking if this is actually a minor account. That's a compliance violation. It works, but it's doing it wrong."*
@@ -44,7 +44,7 @@ Each upload makes the AI agent smarter. Narrate what works, what fails, and why 
 16. **SAY:** *"Now it follows procedure — see, it verifies identity before touching the refund. But the conversation feels robotic. And look at what happens at the edge. Viktor is locked out. Sophie is frustrated. A mother is trying to protect her child. Kaito just lost his event. The policy says one thing, and the agent reads it. Your best human agents don't do that."*
 
 ### Stage 4 — "Upload call transcripts (human-to-human)"
-17. Upload all 12 transcripts from `manual_upload/4_call_transcripts/`.
+17. Upload all 28 transcripts (7 per use case) from `manual_upload/4_call_transcripts/`.
 18. **Replay the SAME edge cases:**
     - **Viktor** → bot asks for last 5-star (Venti), device (iPhone 13), server (Europe), AR (~53). Finds UID via knowledge-based search. Opens recovery case REC-prefix ID. ✅
     - **Sophie** → bot empathises, explains soft pity (75+) dramatically boosts the rate, reassures Furina is *statistically imminent*, enables in-game pull tips, emails infographic. Sophie stays. ✅

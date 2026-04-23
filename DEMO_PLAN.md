@@ -27,9 +27,9 @@ Inside, note the `manual_upload/` folder. Everything you'll drag into Copilot li
 ```
 manual_upload/
 ├── 1_faq/                   ← Stage 1 (2 files)
-├── 2_api_specs/             ← Stage 2 (1 file)
+├── 2_api_specs/             ← Stage 2 (2 files — TRY-FIRST + TRY-SECOND)
 ├── 3_policies_and_sops/     ← Stage 3 (10 files)
-└── 4_call_transcripts/      ← Stage 4 (12 files)
+└── 4_call_transcripts/      ← Stage 4 (28 files, 7 per use case)
 ```
 
 ## Step 0.2 — Open 5 browser tabs in this order
@@ -137,9 +137,10 @@ What do I do if I can't log into my account anymore?
 
 ### 2.1 Upload
 
-File to drag in:
+File to drag in (try the first one; if OCP rejects it, try the second):
 ```
-manual_upload/2_api_specs/genshin-hoyoverse_api.yaml
+manual_upload/2_api_specs/genshin-hoyoverse_api__TRY-FIRST__concise-13KB.yaml
+manual_upload/2_api_specs/genshin-hoyoverse_api__TRY-SECOND__full-autogen-21KB.yaml
 ```
 
 **How in Copilot UI:**
@@ -293,7 +294,7 @@ Hi, my UID is 832458917. I lost two days of Spiral Abyss progress during the Asi
 
 ### 4.1 Upload
 
-Drag **all 12 files** from:
+Drag **all 28 files** (7 per use case) from:
 ```
 manual_upload/4_call_transcripts/
 ```
@@ -531,10 +532,10 @@ output/genshin-hoyoverse/
 ├── documents/                            (12 DOCX)
 ├── manual_upload/
 │   ├── 1_faq/                           (2 files — Stage 1)
-│   ├── 2_api_specs/                     (1 YAML — Stage 2)
+│   ├── 2_api_specs/                     (2 YAML — Stage 2, TRY-FIRST + TRY-SECOND)
 │   ├── 3_policies_and_sops/             (10 DOCX — Stage 3)
-│   └── 4_call_transcripts/              (12 JSON — Stage 4)
-├── transcripts/                          (48 total — 12 per stage)
+│   └── 4_call_transcripts/              (28 JSON — Stage 4, 7 per use case)
+├── transcripts/                          (64 total — 12/12/12/28 per stage)
 ├── server/                               (app.py + seed_data.json + OpenAPI)
 └── deploy/                               (Dockerfile + render.yaml + scripts)
 ```

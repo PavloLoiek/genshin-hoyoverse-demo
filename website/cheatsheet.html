@@ -848,7 +848,8 @@ Claude will run the deploy script automatically via the Render REST API.</code><
   <div class="phase-card">
     <p><strong>Files to upload:</strong></p>
     <ul>
-      <li><code>manual_upload/2_api_specs/genshin-hoyoverse_api.yaml</code></li>
+      <li><code>manual_upload/2_api_specs/genshin-hoyoverse_api__TRY-FIRST__concise-13KB.yaml</code> (try this first)</li>
+      <li><code>manual_upload/2_api_specs/genshin-hoyoverse_api__TRY-SECOND__full-autogen-21KB.yaml</code> (fallback if first fails)</li>
     </ul>
 
     <p><strong>What the agent can now do:</strong></p>
@@ -980,20 +981,12 @@ Claude will run the deploy script automatically via the Render REST API.</code><
   <!-- Stage 4 -->
   <h4 class="phase-title" id="a-phase-4">Stage 4: Call Transcripts &mdash; Human Expertise (8 min &mdash; the emotional peak)</h4>
   <div class="phase-card">
-    <p><strong>Files to upload (all 12, Cmd+A then drag):</strong></p>
+    <p><strong>Files to upload (all 28, Cmd+A then drag — 7 per use case):</strong></p>
     <ul>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call01.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call02.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call03.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call02.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call03.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call02.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call03.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call02.json</code></li>
-      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call03.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call01.json</code> &hellip; <code>call07.json</code> (7 files)</li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json</code> &hellip; <code>call07.json</code> (7 files)</li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json</code> &hellip; <code>call07.json</code> (7 files)</li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json</code> &hellip; <code>call07.json</code> (7 files)</li>
     </ul>
 
     <p><strong>What the agent can now do (beyond Stage 3):</strong></p>
@@ -1178,10 +1171,9 @@ Claude will run the deploy script automatically via the Render REST API.</code><
 <span class="dir">  1_faq/</span>                                                      <span style="color:#888;">&mdash; Stage 1: Product Knowledge (2 files)</span>
 <span class="file">    index.html</span>                                                 <span style="color:#888;">(24.9 KB &mdash; FAQ website page)</span>
 <span class="file">    faq_document.docx</span>                                          <span style="color:#888;">(41.1 KB &mdash; FAQ long-form document)</span>
-<span class="dir">  2_api_specs/</span>                                                 <span style="color:#888;">&mdash; Stage 2: System Access (3 files)</span>
-<span class="file">    genshin-hoyoverse_api.yaml</span>                                 <span style="color:#888;">(21.2 KB &mdash; Primary consolidated OpenAPI spec)</span>
-<span class="file">    genshin-hoyoverse_api__v1_handwritten.yaml</span>                 <span style="color:#888;">(12.9 KB &mdash; handwritten variant)</span>
-<span class="file">    genshin-hoyoverse_api__v2_autogen.yaml</span>                     <span style="color:#888;">(21.2 KB &mdash; autogen variant)</span>
+<span class="dir">  2_api_specs/</span>                                                 <span style="color:#888;">&mdash; Stage 2: System Access (2 files)</span>
+<span class="file">    genshin-hoyoverse_api__TRY-FIRST__concise-13KB.yaml</span>       <span style="color:#888;">(12.9 KB &mdash; hand-written, upload this FIRST)</span>
+<span class="file">    genshin-hoyoverse_api__TRY-SECOND__full-autogen-21KB.yaml</span>  <span style="color:#888;">(21.2 KB &mdash; fallback if first fails)</span>
 <span class="dir">  3_policies_and_sops/</span>                                         <span style="color:#888;">&mdash; Stage 3: Business Rules (10 files)</span>
 <span class="file">    Account_Recovery_policy.docx</span>                               <span style="color:#888;">(38.8 KB)</span>
 <span class="file">    Account_Recovery_sop.docx</span>                                  <span style="color:#888;">(39.3 KB)</span>
@@ -1193,19 +1185,11 @@ Claude will run the deploy script automatically via the Render REST API.</code><
 <span class="file">    Compensation_And_Bugs_sop.docx</span>                             <span style="color:#888;">(38.9 KB)</span>
 <span class="file">    minor_account_protection_policy.docx</span>                       <span style="color:#888;">(38.2 KB &mdash; MAPP, the key document for Helen)</span>
 <span class="file">    general_training_guide.docx</span>                                <span style="color:#888;">(41.5 KB)</span>
-<span class="dir">  4_call_transcripts/</span>                                          <span style="color:#888;">&mdash; Stage 4: Human Expertise (12 files)</span>
-<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call01.json</span>         <span style="color:#888;">(1.7 KB)</span>
-<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call02.json</span>         <span style="color:#888;">(2.4 KB)</span>
-<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call03.json</span>         <span style="color:#888;">(2.0 KB)</span>
-<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json</span>  <span style="color:#888;">(1.5 KB)</span>
-<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call02.json</span>  <span style="color:#888;">(2.3 KB)</span>
-<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call03.json</span>  <span style="color:#888;">(2.1 KB)</span>
-<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json</span>        <span style="color:#888;">(1.7 KB)</span>
-<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call02.json</span>        <span style="color:#888;">(3.0 KB)</span>
-<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call03.json</span>        <span style="color:#888;">(1.9 KB)</span>
-<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json</span>    <span style="color:#888;">(1.8 KB)</span>
-<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call02.json</span>    <span style="color:#888;">(2.8 KB)</span>
-<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call03.json</span>    <span style="color:#888;">(2.2 KB)</span>
+<span class="dir">  4_call_transcripts/</span>                                          <span style="color:#888;">&mdash; Stage 4: Human Expertise (28 files, 7 per use case)</span>
+<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call01.json &hellip; call07.json</span>         <span style="color:#888;">(7 files &mdash; pw reset, 2FA, platform migration, suspicious login, email update)</span>
+<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json &hellip; call07.json</span>  <span style="color:#888;">(7 files &mdash; soft pity, 50/50, Epitomized Path, pity carryover)</span>
+<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json &hellip; call07.json</span>        <span style="color:#888;">(7 files &mdash; duplicate charge, Welkin renewal, Apple receipt, FX)</span>
+<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json &hellip; call07.json</span>    <span style="color:#888;">(7 files &mdash; maintenance, boss despawn, Spiral Abyss, event currency)</span>
 <span class="dir">  5_misc_docs/</span>                                                 <span style="color:#888;">&mdash; Reference (1 file, optional)</span>
 <span class="file">    known_incidents_log_2026.docx</span>                              <span style="color:#888;">(38.2 KB &mdash; INC202604161 details &amp; incident history)</span>
   </div>
@@ -1290,17 +1274,17 @@ This will:
       <tr>
         <td>Helen refund denied in Stage 4 (MAPP missed)</td>
         <td>Either <code>minor_account_protection_policy.docx</code> or the Top_Up_And_Refund Stage 4 transcripts did not index</td>
-        <td>Verify both files are visible on the Documents page. If only the policy is there, Stage 4 transcripts are missing &mdash; re-upload all 12 JSONs.</td>
+        <td>Verify both files are visible on the Documents page. If only the policy is there, Stage 4 transcripts are missing &mdash; re-upload all 28 JSONs.</td>
       </tr>
       <tr>
         <td>Viktor recovery fails in Stage 4</td>
         <td>Stage 4 Account_Recovery transcripts didn&rsquo;t all upload</td>
-        <td>Check for all 3 files: <code>Account_Recovery__stage4__call01.json</code> through <code>call03.json</code>.</td>
+        <td>Check for all 7 files: <code>Account_Recovery__stage4__call01.json</code> through <code>call07.json</code>.</td>
       </tr>
       <tr>
         <td>Edge case in Stage 4 fails</td>
         <td>Stage 4 transcripts did not all upload</td>
-        <td>You should see 12 transcript JSON files in the Documents tab. If fewer, re-drag the folder.</td>
+        <td>You should see 28 transcript JSON files in the Documents tab. If fewer, re-drag the folder.</td>
       </tr>
       <tr>
         <td>Service sleeps mid-demo</td>
