@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HoYoverse — Genshin Impact - Demo Cheatsheet</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #FFFFFF;
+    color: #1F2433;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  a { color: #E8B84E; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0E1530 0%, #1E2754 55%, #3B2A6B 100%);
+    color: #FFFFFF;
+    padding: 0;
+    border-bottom: 4px solid #E8B84E;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    font-family: 'Georgia', serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #E8B84E;
+    letter-spacing: 1px;
+  }
+  .logo span {
+    color: #FFFFFF;
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+    opacity: 0.85;
+  }
+  .header-badge {
+    background: rgba(232, 184, 78, 0.15);
+    border: 1px solid #E8B84E;
+    color: #E8B84E;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .header-urls {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .header-urls a {
+    color: #E8B84E;
+    background: rgba(232, 184, 78, 0.1);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(232, 184, 78, 0.3);
+  }
+  .header-urls a:hover {
+    background: rgba(232, 184, 78, 0.25);
+    text-decoration: none;
+  }
+
+  /* Main content */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+
+  /* Meta block */
+  .meta-block {
+    background: #F4F2FA;
+    border-left: 4px solid #3B2A6B;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+  .meta-block strong { color: #3B2A6B; }
+
+  /* Table of Contents */
+  .toc {
+    background: #FAFAFC;
+    border: 1px solid #DCD8EA;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    columns: 2;
+    column-gap: 32px;
+  }
+  .toc h2 {
+    font-size: 16px;
+    color: #1E2754;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    column-span: all;
+  }
+  .toc ol {
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  .toc li { margin-bottom: 5px; break-inside: avoid; }
+  .toc a { color: #1E2754; font-weight: 500; }
+  .toc a:hover { color: #E8B84E; }
+  .toc ol ol { margin-top: 4px; margin-bottom: 8px; }
+
+  /* Section headings */
+  h2.section-title {
+    font-size: 22px;
+    color: #1E2754;
+    border-bottom: 2px solid #E8B84E;
+    padding-bottom: 8px;
+    margin-top: 48px;
+    margin-bottom: 20px;
+  }
+  h3.subsection-title {
+    font-size: 18px;
+    color: #1E2754;
+    margin-top: 32px;
+    margin-bottom: 14px;
+  }
+  h4.phase-title {
+    font-size: 16px;
+    color: #FFFFFF;
+    background: linear-gradient(90deg, #1E2754 0%, #3B2A6B 100%);
+    padding: 10px 16px;
+    border-radius: 6px 6px 0 0;
+    margin-top: 28px;
+    margin-bottom: 0;
+  }
+
+  /* Paragraphs & lists */
+  p { margin-bottom: 12px; }
+  ul, ol { margin-bottom: 14px; padding-left: 24px; }
+  li { margin-bottom: 5px; }
+
+  /* Code blocks */
+  pre {
+    background: #0E1530;
+    color: #E8D9A6;
+    padding: 16px 20px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  code {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    background: #EEEAF6;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+    color: #1E2754;
+  }
+  pre code { background: none; padding: 0; color: inherit; font-size: inherit; }
+
+  /* SAY THIS callout */
+  .say-this {
+    background: #FFF6D6;
+    border-left: 5px solid #E8B84E;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0 20px;
+    position: relative;
+  }
+  .say-this::before {
+    content: "SAY THIS";
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #B7892A;
+    margin-bottom: 6px;
+  }
+  .say-this p {
+    font-style: italic;
+    color: #3E3218;
+    margin: 0 0 6px;
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+  .say-this p:last-child { margin-bottom: 0; }
+
+  /* SHOW THIS callout */
+  .show-this {
+    background: #E6ECFB;
+    border-left: 5px solid #1E2754;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0 20px;
+  }
+  .show-this::before {
+    content: "SHOW THIS";
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #1E2754;
+    margin-bottom: 6px;
+  }
+  .show-this p { margin: 0 0 4px; font-size: 14px; }
+  .show-this p:last-child { margin-bottom: 0; }
+
+  /* Notice callout */
+  .notice {
+    background: #F4F5FB;
+    border-left: 4px solid #1E2754;
+    padding: 14px 18px;
+    margin: 14px 0 20px;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: #3B3B52;
+  }
+  .notice strong {
+    color: #1E2754;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Transition callout */
+  .transition {
+    background: #F2ECFA;
+    border: 1px dashed #7C5CC4;
+    border-radius: 6px;
+    padding: 12px 18px;
+    margin: 16px 0 20px;
+    font-size: 14px;
+    color: #3E2F5C;
+  }
+  .transition::before {
+    content: "TRANSITION";
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7C5CC4;
+    margin-bottom: 4px;
+  }
+
+  /* Edge case callout */
+  .edge-case {
+    background: #E5F4F8;
+    border-left: 5px solid #0B8AB0;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0 20px;
+  }
+  .edge-case::before {
+    content: "EDGE CASE — AHA MOMENT";
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0B8AB0;
+    margin-bottom: 6px;
+  }
+
+  /* Phase card */
+  .phase-card {
+    border: 1px solid #DCD8EA;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 28px;
+    background: #FAFAFC;
+  }
+
+  /* Test items */
+  .works {
+    color: #267C43;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .fails {
+    color: #B72828;
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 13.5px;
+  }
+  th {
+    background: #1E2754;
+    color: #FFFFFF;
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #DCD8EA;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #F4F2FA; }
+  .table-responsive { overflow-x: auto; margin: 16px 0 24px; }
+
+  /* Use case cards */
+  .usecase-card {
+    background: #FAFAFC;
+    border: 1px solid #DCD8EA;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+  }
+  .usecase-card h4 {
+    margin-top: 0;
+    color: #1E2754;
+    font-size: 17px;
+    border-bottom: 1px solid #DCD8EA;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  .usecase-card li { margin-bottom: 8px; }
+  .metric { color: #B7892A; font-weight: bold; }
+
+  /* Sequence tabs */
+  .seq-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+  }
+  .seq-tab {
+    padding: 10px 20px;
+    background: #DCD8EA;
+    color: #1E2754;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: default;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid #DCD8EA;
+    border-bottom: none;
+  }
+  .seq-tab.recommended {
+    background: #E8B84E;
+    color: #1E2754;
+    border-color: #E8B84E;
+  }
+  .seq-content {
+    border: 1px solid #DCD8EA;
+    border-radius: 0 0 8px 8px;
+    padding: 20px;
+    margin-bottom: 28px;
+    background: #FAFAFC;
+  }
+
+  /* File tree */
+  .file-tree {
+    background: #0E1530;
+    color: #E8B84E;
+    padding: 18px 20px;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    overflow-x: auto;
+  }
+  .file-tree .dir { color: #9FB3F0; }
+  .file-tree .file { color: #E8D9A6; }
+
+  /* Horizontal rule */
+  hr {
+    border: none;
+    border-top: 1px solid #DCD8EA;
+    margin: 36px 0;
+  }
+
+  /* Print styles */
+  @media print {
+    body { font-size: 11px; line-height: 1.4; }
+    .header { background: #1E2754 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .header-inner { padding: 12px 16px; }
+    .main { padding: 16px; max-width: 100%; }
+    .toc { page-break-after: always; columns: 1; }
+    h2.section-title { margin-top: 20px; page-break-after: avoid; }
+    h3.subsection-title { page-break-after: avoid; }
+    h4.phase-title { page-break-after: avoid; }
+    .say-this, .show-this, .notice, .edge-case, .usecase-card, pre, .phase-card { page-break-inside: avoid; }
+    pre { background: #F0F0F0 !important; color: #333 !important; border: 1px solid #CCC; }
+    .file-tree { background: #F0F0F0 !important; color: #333 !important; border: 1px solid #CCC; }
+    a { color: #1E2754 !important; }
+    th { background: #1E2754 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .seq-tab.recommended { background: #E8B84E !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h4.phase-title { background: #1E2754 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    tr:nth-child(even) td { background: #F5F5F5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .header-inner { padding: 20px 16px; }
+    .logo { font-size: 26px; }
+    .logo span { font-size: 13px; }
+    .main { padding: 20px 16px 48px; }
+    h2.section-title { font-size: 19px; }
+    h3.subsection-title { font-size: 16px; }
+    pre { font-size: 11.5px; padding: 14px 16px; }
+    table { font-size: 12px; }
+    th, td { padding: 7px 8px; }
+    .toc { columns: 1; }
+    .seq-tabs { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">
+      HoYoverse &mdash; Genshin Impact
+      <span>Demo Cheatsheet &mdash; Presenter Bible</span>
+    </div>
+    <div class="header-badge">Presenter Guide</div>
+    <div class="header-urls">
+      <a href="https://genshin-hoyoverse.onrender.com/">FAQ Website</a>
+      <a href="https://genshin-hoyoverse.onrender.com/docs">Swagger UI</a>
+      <a href="https://genshin-hoyoverse.onrender.com/documents">Documents</a>
+      <a href="https://genshin-hoyoverse.onrender.com/health">Health Check</a>
+      <a href="https://genshin-hoyoverse.onrender.com/cheatsheet">Cheatsheet</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main">
+
+  <!-- Meta -->
+  <div class="meta-block">
+    <strong>Customer:</strong> HoYoverse &mdash; Genshin Impact Player Support<br>
+    <strong>Group:</strong> genshin-hoyoverse<br>
+    <strong>Use Cases:</strong> Account_Recovery, Wish_And_Gacha_Disputes, Top_Up_And_Refund, Compensation_And_Bugs<br>
+    <strong>Demo Sequence:</strong> FAQ &rarr; API Specs &rarr; Policies/SOPs &rarr; Call Transcripts (Document-First)<br>
+    <strong>Generated:</strong> 2026-04-22
+  </div>
+
+  <!-- ==================== TABLE OF CONTENTS ==================== -->
+  <div class="toc" id="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#sec-1">Pre-Demo Setup</a></li>
+      <li><a href="#sec-2">Seed Data Reference Table</a></li>
+      <li><a href="#sec-3">Demo Sequence Overview</a></li>
+      <li><a href="#sec-4">Detailed Phase-by-Phase Guide</a>
+        <ol type="a" style="margin-top:4px;">
+          <li><a href="#a-phase-1">Stage 1: FAQ</a></li>
+          <li><a href="#a-phase-2">Stage 2: API Specs</a></li>
+          <li><a href="#a-phase-3">Stage 3: Policies &amp; SOPs</a></li>
+          <li><a href="#a-phase-4">Stage 4: Call Transcripts</a></li>
+        </ol>
+      </li>
+      <li><a href="#sec-5">Edge Cases &mdash; The &ldquo;Aha Moments&rdquo;</a></li>
+      <li><a href="#sec-6">Per-Use-Case Talking Points</a></li>
+      <li><a href="#sec-7">File Inventory</a></li>
+      <li><a href="#sec-8">Post-Demo Cleanup</a></li>
+      <li><a href="#sec-9">Troubleshooting</a></li>
+    </ol>
+  </div>
+
+  <!-- ==================== 1. PRE-DEMO SETUP ==================== -->
+  <h2 class="section-title" id="sec-1">1. Pre-Demo Setup</h2>
+
+  <h3 class="subsection-title">Deploy</h3>
+  <pre><code>Tell Claude: "Deploy the demo for genshin-hoyoverse"
+Claude will run the deploy script automatically via the Render REST API.</code></pre>
+
+  <h3 class="subsection-title">Verify URLs</h3>
+  <p>Open each of these and confirm they load. Render free tier sleeps after 15 minutes &mdash; first hit may take 30-60 seconds to wake.</p>
+  <table>
+    <thead><tr><th>Service</th><th>URL</th><th>Expected</th></tr></thead>
+    <tbody>
+      <tr><td>Health Check</td><td><a href="https://genshin-hoyoverse.onrender.com/health">https://genshin-hoyoverse.onrender.com/health</a></td><td>JSON: <code>{"status":"ok","customer":"HoYoverse — Genshin Impact"}</code></td></tr>
+      <tr><td>FAQ Website</td><td><a href="https://genshin-hoyoverse.onrender.com/">https://genshin-hoyoverse.onrender.com/</a></td><td>Genshin player-support FAQ page</td></tr>
+      <tr><td>Swagger UI</td><td><a href="https://genshin-hoyoverse.onrender.com/docs">https://genshin-hoyoverse.onrender.com/docs</a></td><td>Interactive API docs with player, wish, order, incident endpoints</td></tr>
+      <tr><td>Documents</td><td><a href="https://genshin-hoyoverse.onrender.com/documents">https://genshin-hoyoverse.onrender.com/documents</a></td><td>Listing of all policy/SOP/transcript files</td></tr>
+      <tr><td>Cheatsheet</td><td><a href="https://genshin-hoyoverse.onrender.com/cheatsheet">https://genshin-hoyoverse.onrender.com/cheatsheet</a></td><td>This page</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection-title">What to Have Open</h3>
+  <ul>
+    <li><strong>Cmd+1:</strong> Omilia Copilot UI &mdash; where you create the <em>HoYoverse &mdash; Genshin Impact</em> project and upload documents.</li>
+    <li><strong>Cmd+2:</strong> DEMO_PLAN.md (or this cheatsheet) &mdash; your script and reference.</li>
+    <li><strong>Cmd+3:</strong> Swagger UI &mdash; to show live API calls during Stage 2 (pity_counter, orders, incidents).</li>
+    <li><strong>Cmd+4:</strong> FAQ website &mdash; the source material the agent learns from in Stage 1.</li>
+    <li><strong>Cmd+5:</strong> This cheatsheet on your phone &mdash; backup if your laptop crashes.</li>
+  </ul>
+
+  <h3 class="subsection-title">Warm up the service</h3>
+  <p>5 minutes before the demo, hit the <code>/health</code> endpoint to wake Render from sleep. Wait for the JSON response. If you see a 502, wait 30 seconds and refresh.</p>
+
+  <hr>
+
+  <!-- ==================== 2. SEED DATA REFERENCE TABLE ==================== -->
+  <h2 class="section-title" id="sec-2">2. Seed Data Reference Table</h2>
+  <p>These are the 9 player records loaded in the system. Use them for all test calls. UID prefix = server region: <strong>6xxxxxxxx = America</strong>, <strong>7xxxxxxxx = Europe</strong>, <strong>8xxxxxxxx = Asia</strong>, <strong>9xxxxxxxx = TW/HK/MO</strong>.</p>
+
+  <div class="table-responsive">
+  <table>
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>UID</th>
+        <th>Region</th>
+        <th>AR</th>
+        <th>Last 5&starf;</th>
+        <th>Device</th>
+        <th>Platform</th>
+        <th>Last Top-Up</th>
+        <th>Order</th>
+        <th>Status</th>
+        <th>Notes / Flags</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Kaito Nakamura</strong></td>
+        <td><code>832458917</code></td>
+        <td>Asia</td>
+        <td>60</td>
+        <td>Furina</td>
+        <td>iPhone 15 Pro</td>
+        <td>Apple</td>
+        <td>$99.99 &mdash; Apr 18</td>
+        <td><code>ORD202604180001</code></td>
+        <td>Active</td>
+        <td><strong>Compensation edge case</strong> &mdash; INC202604161</td>
+      </tr>
+      <tr>
+        <td><strong>Sofia Rodriguez</strong></td>
+        <td><code>704582103</code></td>
+        <td>Europe</td>
+        <td>55</td>
+        <td>Raiden Shogun</td>
+        <td>Galaxy S23</td>
+        <td>HoYoverse</td>
+        <td>&mdash;</td>
+        <td>&mdash;</td>
+        <td>Active</td>
+        <td>F2P, wrong-banner scenario</td>
+      </tr>
+      <tr>
+        <td><strong>Marcus Chen</strong></td>
+        <td><code>603245891</code></td>
+        <td>America</td>
+        <td>58</td>
+        <td>Neuvillette</td>
+        <td>PS5</td>
+        <td>PSN</td>
+        <td>$49.99 &mdash; Apr 19</td>
+        <td><code>ORD202604190007</code></td>
+        <td>Active</td>
+        <td>Platform-based recovery scenario</td>
+      </tr>
+      <tr>
+        <td><strong>Emma Williams</strong><br><span style="font-size:12px;color:#666;">Guardian: Helen Williams</span></td>
+        <td><code>705532108</code></td>
+        <td>Europe</td>
+        <td>45</td>
+        <td>Nahida</td>
+        <td>iPad Air</td>
+        <td>HoYoverse</td>
+        <td><strong>$520.00 &mdash; Apr 17</strong></td>
+        <td><code>ORD202604170012</code></td>
+        <td>UnderReview</td>
+        <td><strong>MINOR account &mdash; Top-Up/Refund edge case</strong> (card last 4: <code>7712</code>)</td>
+      </tr>
+      <tr>
+        <td><strong>Aisha Patel</strong></td>
+        <td><code>803990456</code></td>
+        <td>Asia</td>
+        <td>50</td>
+        <td>Hu Tao</td>
+        <td>OnePlus 11</td>
+        <td>HoYoverse</td>
+        <td>$4.99 &mdash; Apr 15</td>
+        <td><code>ORD202604150002</code></td>
+        <td>Active</td>
+        <td>80 pulls wish pity scenario</td>
+      </tr>
+      <tr>
+        <td><strong>Viktor Ivanov</strong></td>
+        <td><code>708817234</code></td>
+        <td>Europe</td>
+        <td>53</td>
+        <td>Venti</td>
+        <td>iPhone 13</td>
+        <td>HoYoverse</td>
+        <td>&mdash; (F2P)</td>
+        <td>&mdash;</td>
+        <td><strong>LockedOut</strong></td>
+        <td><strong>Account Recovery edge case</strong> &mdash; no UID, no email access</td>
+      </tr>
+      <tr>
+        <td><strong>Yuki Tanaka</strong></td>
+        <td><code>832118007</code></td>
+        <td>Asia</td>
+        <td>60</td>
+        <td>Zhongli</td>
+        <td>iPhone 15 Pro Max</td>
+        <td>Apple</td>
+        <td>$99.99 &mdash; Apr 20</td>
+        <td><code>ORD202604200004</code></td>
+        <td>Active</td>
+        <td>Heavy spender ($8.9K lifetime)</td>
+      </tr>
+      <tr>
+        <td><strong>David Brown</strong></td>
+        <td><code>606778231</code></td>
+        <td>America</td>
+        <td>30</td>
+        <td>&mdash;</td>
+        <td>Windows PC</td>
+        <td>HoYoverse</td>
+        <td>&mdash; (F2P)</td>
+        <td>&mdash;</td>
+        <td>Active</td>
+        <td>New player scenario</td>
+      </tr>
+      <tr>
+        <td><strong>Sophie Martin</strong><br><span style="font-size:12px;color:#666;">(aka Liam O'Connor in seed)</span></td>
+        <td><code>703321876</code></td>
+        <td>Europe</td>
+        <td>57</td>
+        <td>Raiden Shogun</td>
+        <td>iPhone 14</td>
+        <td>HoYoverse</td>
+        <td>$29.99 &mdash; Apr 10</td>
+        <td><code>ORD202604100018</code></td>
+        <td>Active</td>
+        <td><strong>Wish/Gacha edge case</strong> &mdash; 82 pulls no 5&starf; on Furina, soft pity active</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="notice">
+    <strong>Key players for edge cases</strong>
+    <strong style="font-size:14px;text-transform:none;letter-spacing:0;display:inline;">Viktor Ivanov</strong> (UID 708817234, LockedOut) &mdash; no UID, no email access &rarr; Account Recovery edge case.
+    <strong style="font-size:14px;text-transform:none;letter-spacing:0;display:inline;">Sophie Martin</strong> (UID 703321876) &mdash; 82 pulls, no 5&starf; on Furina &rarr; Wish &amp; Gacha edge case.
+    <strong style="font-size:14px;text-transform:none;letter-spacing:0;display:inline;">Emma Williams / Helen</strong> (UID 705532108, minor, $520 unauthorised) &rarr; Top-Up &amp; Refund / Minor Account edge case.
+    <strong style="font-size:14px;text-transform:none;letter-spacing:0;display:inline;">Kaito Nakamura</strong> (UID 832458917, INC202604161) &rarr; Compensation goodwill edge case.
+  </div>
+
+  <h3 class="subsection-title">Pity numbers (memorise for Sophie)</h3>
+  <table>
+    <thead><tr><th>Number</th><th>Meaning</th></tr></thead>
+    <tbody>
+      <tr><td><strong>90</strong></td><td>Hard pity (guaranteed 5&starf;)</td></tr>
+      <tr><td><strong>75</strong></td><td>Soft pity starts &mdash; 5&starf; rate dramatically boosted</td></tr>
+      <tr><td><strong>76&ndash;83</strong></td><td>Where most 5&starf;s actually land</td></tr>
+      <tr><td><strong>0.6%</strong></td><td>Base 5&starf; rate before soft pity kicks in</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection-title">Compensation table (memorise for Kaito)</h3>
+  <table>
+    <thead><tr><th>Outage duration</th><th>Standard compensation</th></tr></thead>
+    <tbody>
+      <tr><td>&ge; 1 hour</td><td>60 Primogems</td></tr>
+      <tr><td>&ge; 6 hours</td><td>300 Primogems</td></tr>
+      <tr><td>&ge; 12 hours</td><td>300 Primogems + 3 Intertwined Fates</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="subsection-title">ID prefixes (quick lookup)</h3>
+  <table>
+    <thead><tr><th>Prefix</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td><code>6xxxxxxxx</code></td><td>America server UID</td><td>603245891</td></tr>
+      <tr><td><code>7xxxxxxxx</code></td><td>Europe server UID</td><td>708817234</td></tr>
+      <tr><td><code>8xxxxxxxx</code></td><td>Asia server UID</td><td>832458917</td></tr>
+      <tr><td><code>9xxxxxxxx</code></td><td>TW / HK / MO server UID</td><td>(none in seed)</td></tr>
+      <tr><td><code>ORD&hellip;</code></td><td>Order / top-up transaction</td><td>ORD202604170012</td></tr>
+      <tr><td><code>REC&hellip;</code></td><td>Account recovery case</td><td>REC7A4B1F9C</td></tr>
+      <tr><td><code>CMP&hellip;</code></td><td>Compensation ticket</td><td>CMP9921</td></tr>
+      <tr><td><code>INC&hellip;</code></td><td>Service incident</td><td>INC202604161</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- ==================== 3. DEMO SEQUENCE ==================== -->
+  <h2 class="section-title" id="sec-3">3. Demo Sequence Overview</h2>
+  <p>The demo uses a single proven sequence: <strong>Document-First</strong>. Four uploads, each one closes a gap the previous one left. Four specific callers fail at Stage 3 and resolve beautifully at Stage 4 &mdash; that is the emotional arc.</p>
+
+  <div>
+    <div class="seq-tabs">
+      <div class="seq-tab recommended">Document-First (FAQ &rarr; API &rarr; Policy &rarr; Transcripts)</div>
+    </div>
+    <div class="seq-content">
+      <p><strong>The one-line arc (memorise this):</strong> <em>&ldquo;Four uploads. FAQ, API, Policy, Transcripts. Each one closes a gap the previous one left. After the fourth upload, the same caller who failed at Stage 3 gets a beautiful resolution &mdash; without us writing a single line of code. That&rsquo;s the Self-Learning flywheel.&rdquo;</em></p>
+      <div class="table-responsive">
+      <table>
+        <thead>
+          <tr><th>Stage</th><th>Upload</th><th>Folder</th><th>What Works</th><th>What Fails</th><th>SAY THIS</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>FAQs</td>
+            <td><code>manual_upload/1_faq/</code></td>
+            <td><span class="works">Answers pity, Welkin, refund questions factually</span></td>
+            <td><span class="fails">Cannot look up UIDs, pity counters, orders &mdash; no hands</span></td>
+            <td><em>&ldquo;The agent knows every policy and every FAQ topic. It has knowledge but no hands.&rdquo;</em></td>
+          </tr>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>API Specs</td>
+            <td><code>manual_upload/2_api_specs/</code></td>
+            <td><span class="works">Calls pity_counter, orders, processes refunds live</span></td>
+            <td><span class="fails">No identity check, no minor-account check, no amount read-back</span></td>
+            <td><em>&ldquo;Now it has power. But no judgment. It&rsquo;s a 16-year-old with the keys to the store.&rdquo;</em></td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Policies &amp; SOPs</td>
+            <td><code>manual_upload/3_policies_and_sops/</code></td>
+            <td><span class="works">Verifies identity, cites MAPP, applies comp table, escalates</span></td>
+            <td><span class="fails">Viktor, Sophie, Helen, Kaito all fail &mdash; policy quoted verbatim</span></td>
+            <td><em>&ldquo;Now it&rsquo;s compliant. But every one of these callers failed at a real edge your best humans handle daily.&rdquo;</em></td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Call Transcripts</td>
+            <td><code>manual_upload/4_call_transcripts/</code></td>
+            <td><span class="works">4-factor KB recovery, empathetic pity explanation, MAPP invocation, goodwill escalation</span></td>
+            <td>&mdash;</td>
+            <td><em>&ldquo;No one coded these fallbacks. The AI learned them from how your best human agents handle the same callers.&rdquo;</em></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ==================== 4. PHASE-BY-PHASE GUIDE ==================== -->
+  <h2 class="section-title" id="sec-4">4. Detailed Phase-by-Phase Guide</h2>
+  <p>Follow each stage in order. Each has files to upload, capabilities unlocked, test calls (verbatim), and presenter scripts.</p>
+
+  <h3 class="subsection-title" style="background:#1E2754;color:#FFFFFF;padding:12px 18px;border-radius:6px;margin-top:36px;">Opening (2 min &mdash; before Stage 1)</h3>
+  <div class="say-this">
+    <p>&ldquo;Thanks for the time. I&rsquo;m going to run the same Self-Learning demo Spiros ran yesterday, but on a vertical we don&rsquo;t currently serve &mdash; HoYoverse, makers of Genshin Impact. 60 million monthly players, massive support volume, four support pillars: account recovery, gacha complaints, payments, outage compensation. It&rsquo;s a stress test of the platform on a vertical you&rsquo;ve never seen.&rdquo;</p>
+    <p>&ldquo;I&rsquo;ll do four uploads. FAQ. API specs. Policies. Call transcripts. After each one, the agent levels up. More importantly &mdash; four specific callers will fail at stage 3 and succeed at stage 4. Remember these names: Viktor, Sophie, Helen, Kaito. All four fail. All four resolve beautifully. That&rsquo;s the whole pitch.&rdquo;</p>
+  </div>
+
+  <!-- Stage 1 -->
+  <h4 class="phase-title" id="a-phase-1">Stage 1: FAQ &mdash; Product Knowledge Only (3 min)</h4>
+  <div class="phase-card">
+    <p><strong>Files to upload:</strong></p>
+    <ul>
+      <li><code>manual_upload/1_faq/index.html</code></li>
+      <li><code>manual_upload/1_faq/faq_document.docx</code></li>
+    </ul>
+
+    <p><strong>What the agent can now do:</strong></p>
+    <ul>
+      <li><span class="works">&#10003;</span> Explain what Welkin Moon includes (300 Genesis Crystals + 90 Primogems/day &times; 30 days)</li>
+      <li><span class="works">&#10003;</span> Describe the pity system, soft pity, hard pity in the abstract</li>
+      <li><span class="works">&#10003;</span> Outline the general account-recovery flow</li>
+      <li><span class="works">&#10003;</span> Cite refund policy in general terms</li>
+      <li><span class="works">&#10003;</span> Explain outage compensation ranges</li>
+    </ul>
+
+    <p><strong>What the agent still cannot do:</strong></p>
+    <ul>
+      <li><span class="fails">&#10007;</span> Look up any player by UID</li>
+      <li><span class="fails">&#10007;</span> Check a specific pity counter, order, or incident</li>
+      <li><span class="fails">&#10007;</span> Initiate account recovery, process refunds, or issue compensation</li>
+    </ul>
+
+    <p><strong>Test calls to make (say these verbatim in Copilot chat):</strong></p>
+    <ol>
+      <li><strong>Call 1.1 &mdash; FAQ factual (should work):</strong><br>
+        <em>&ldquo;Hi, can you tell me what Welkin Moon includes?&rdquo;</em><br>
+        <span class="works">Expected:</span> <em>&ldquo;Welkin Moon is a 30-day subscription that gives 300 Genesis Crystals immediately plus 90 Primogems per day for 30 days.&rdquo;</em>
+      </li>
+      <li><strong>Call 1.2 &mdash; Account action (should fail):</strong><br>
+        <em>&ldquo;Hi, my UID is 832458917, can you check what my pity is on the Furina banner?&rdquo;</em><br>
+        <span class="fails">Expected:</span> Agent apologises &mdash; no system access yet.
+      </li>
+      <li><strong>Call 1.3 &mdash; Recovery general:</strong><br>
+        <em>&ldquo;What do I do if I can&rsquo;t log into my account anymore?&rdquo;</em><br>
+        <span class="works">Expected:</span> Describes the general flow but doesn&rsquo;t offer to start a case.
+      </li>
+    </ol>
+
+    <div class="say-this">
+      <p>&ldquo;The agent knows every policy and every FAQ topic. Ask it about pity, Welkin, refunds &mdash; it answers. But ask it to actually do something for Kaito &mdash; look up his pity counter &mdash; it can&rsquo;t. It has knowledge but no hands.&rdquo;</p>
+    </div>
+
+    <div class="show-this">
+      <p>Switch to Cmd+4 (FAQ website tab) and scroll briefly. &ldquo;This is the source material the agent learned from.&rdquo;</p>
+    </div>
+
+    <div class="transition">
+      &ldquo;Let&rsquo;s give it hands.&rdquo;
+    </div>
+  </div>
+
+  <!-- Stage 2 -->
+  <h4 class="phase-title" id="a-phase-2">Stage 2: API Specs &mdash; Raw Power, No Guardrails (5 min)</h4>
+  <div class="phase-card">
+    <p><strong>Files to upload:</strong></p>
+    <ul>
+      <li><code>manual_upload/2_api_specs/genshin-hoyoverse_api.yaml</code></li>
+    </ul>
+
+    <p><strong>What the agent can now do:</strong></p>
+    <ul>
+      <li><span class="works">&#10003;</span> Look up player by UID &mdash; <code>/api/player/{uid}</code></li>
+      <li><span class="works">&#10003;</span> Retrieve pity counter &mdash; <code>/api/player/{uid}/pity_counter</code></li>
+      <li><span class="works">&#10003;</span> Fetch orders, initiate refunds, issue compensation live</li>
+      <li><span class="works">&#10003;</span> Query incident records and wish history</li>
+    </ul>
+
+    <p><strong>What the agent still cannot do:</strong></p>
+    <ul>
+      <li><span class="fails">&#10007;</span> Verify caller identity &mdash; leaks data on any UID</li>
+      <li><span class="fails">&#10007;</span> Check the <code>is_minor</code> flag before refunds &mdash; <strong>regulatory risk</strong></li>
+      <li><span class="fails">&#10007;</span> Require guardian verification</li>
+      <li><span class="fails">&#10007;</span> Read back amounts or confirm before action</li>
+    </ul>
+
+    <p><strong>Test calls to make:</strong></p>
+    <ol>
+      <li><strong>Call 2.1 &mdash; Pity lookup (should work cleanly):</strong><br>
+        <em>&ldquo;Hi, my UID is 832458917. What&rsquo;s my pity on the Furina banner?&rdquo;</em><br>
+        <span class="works">Expected:</span> <em>&ldquo;You&rsquo;re at 15 pulls since your last 5-star on the Furina banner. No soft pity yet &mdash; that starts at pull 75.&rdquo;</em>
+      </li>
+      <li><strong>Call 2.2 &mdash; Minor refund (the compliance gap &mdash; script carefully):</strong><br>
+        <em>&ldquo;Hi, I just discovered my 12-year-old daughter spent 520 dollars on Genesis Crystals on my credit card over the last three days. I need a refund. Her UID is 705532108 and the order is ORD202604170012.&rdquo;</em><br>
+        <span class="fails">Expected:</span> Agent starts processing the refund <strong>without checking is_minor, without guardian verification</strong>.
+      </li>
+      <li><strong>Call 2.3 &mdash; Outage comp (another gap):</strong><br>
+        <em>&ldquo;My UID is 832118007, I want compensation for the recent outage.&rdquo;</em><br>
+        <span class="fails">Expected:</span> Agent issues 300 Primogems without confirming which incident or whether Yuki&rsquo;s region was affected.
+      </li>
+    </ol>
+
+    <div class="say-this">
+      <p>&ldquo;Now the agent has power. It can look up orders, process refunds, issue compensation. But it has no judgment &mdash; no verification, no policy checks, no amount read-back. It&rsquo;s a 16-year-old with the keys to the store.&rdquo;</p>
+      <p>&ldquo;Stop &mdash; look at what it just did. A parent called about a child&rsquo;s $520 purchase. The agent didn&rsquo;t check the <code>is_minor</code> flag. It didn&rsquo;t ask for guardian verification. In gaming this is a regulatory problem &mdash; every platform regulator is watching minor-account spend right now.&rdquo;</p>
+    </div>
+
+    <div class="show-this">
+      <p>Switch to Cmd+3 (Swagger UI). Point at <code>/api/player/{uid}/pity_counter</code>. &ldquo;That&rsquo;s the endpoint the agent just called live.&rdquo;</p>
+      <p>Show the <code>/api/orders/{order_id}/refund</code> endpoint too &mdash; no identity parameters required.</p>
+    </div>
+
+    <div class="transition">
+      &ldquo;Let&rsquo;s give it the rulebook.&rdquo;
+    </div>
+  </div>
+
+  <!-- Stage 3 -->
+  <h4 class="phase-title" id="a-phase-3">Stage 3: Policies &amp; SOPs &mdash; Compliance, But Brittle (8 min &mdash; the emotional low)</h4>
+  <div class="phase-card">
+    <p><strong>Files to upload (all 10, Cmd+A in Finder then drag):</strong></p>
+    <ul>
+      <li><code>manual_upload/3_policies_and_sops/Account_Recovery_policy.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Account_Recovery_sop.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Wish_And_Gacha_Disputes_policy.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Wish_And_Gacha_Disputes_sop.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Top_Up_And_Refund_policy.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Top_Up_And_Refund_sop.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Compensation_And_Bugs_policy.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/Compensation_And_Bugs_sop.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/minor_account_protection_policy.docx</code></li>
+      <li><code>manual_upload/3_policies_and_sops/general_training_guide.docx</code></li>
+    </ul>
+
+    <p><strong>What the agent can now do:</strong></p>
+    <ul>
+      <li><span class="works">&#10003;</span> Demand email OTP verification before account actions</li>
+      <li><span class="works">&#10003;</span> Apply the compensation table correctly</li>
+      <li><span class="works">&#10003;</span> Cite the Pity System Policy and Refund Policy accurately</li>
+      <li><span class="works">&#10003;</span> Escalate to a supervisor when the SOP doesn&rsquo;t cover a path</li>
+    </ul>
+
+    <p><strong>What the agent still cannot do:</strong></p>
+    <ul>
+      <li><span class="fails">&#10007;</span> Recover accounts with no UID and no email (Viktor gets stuck)</li>
+      <li><span class="fails">&#10007;</span> Speak to a frustrated player like a human (Sophie quits)</li>
+      <li><span class="fails">&#10007;</span> Pick the right policy when two apply (Helen gets denied under MAPP-eligible refund)</li>
+      <li><span class="fails">&#10007;</span> Go beyond policy minimums for high-value goodwill (Kaito gets the floor)</li>
+    </ul>
+
+    <p><strong>Happy-path warmup (1 call &mdash; proves compliance kicked in):</strong></p>
+    <ol>
+      <li><strong>Call 3.0 &mdash; identity check now happens:</strong><br>
+        <em>&ldquo;Hi, my UID is 603245891, I forgot my password.&rdquo;</em><br>
+        <span class="works">Expected:</span> Agent now asks for email OTP verification BEFORE touching anything. Contrast with Stage 2.
+      </li>
+    </ol>
+
+    <p><strong>The four edge-case failures (the story &mdash; minimum is Viktor + Kaito):</strong></p>
+    <ol>
+      <li><strong>Call 3.1 &mdash; Viktor (Account Recovery):</strong><br>
+        <em>&ldquo;Hi, I can&rsquo;t log in, my account is locked. I don&rsquo;t have my UID, and I lost access to the email on the account a year ago. I&rsquo;m a free-to-play player so I don&rsquo;t have any purchase receipts either.&rdquo;</em><br>
+        <span class="fails">Expected:</span> Agent loops on UID request, eventually escalates. &ldquo;Per Account Recovery Policy I need either the UID or email access.&rdquo;
+      </li>
+      <li><strong>Call 3.2 &mdash; Sophie (Wish &amp; Gacha):</strong><br>
+        <em>&ldquo;Hi, my UID is 703321876. I&rsquo;ve done 82 pulls on the Furina banner and I still don&rsquo;t have her. I spent about 100 dollars on this. I&rsquo;m honestly about to quit the game.&rdquo;</em><br>
+        <span class="fails">Expected:</span> <em>&ldquo;Per our Pity System Policy, the hard pity is at pull 90, and your situation is within expected parameters.&rdquo;</em>
+      </li>
+      <li><strong>Call 3.3 &mdash; Helen (Top-Up &amp; Refund):</strong><br>
+        <em>&ldquo;Hi, this is Helen Williams. I need to report that my 12-year-old daughter Emma spent 520 dollars on Genesis Crystals on my credit card. Her UID is 705532108, order ID is ORD202604170012. I need that refunded.&rdquo;</em><br>
+        <span class="fails">Expected:</span> Agent cites &ldquo;all sales of consumable items are final&rdquo; and suggests a bank dispute. The MAPP clause is missed.
+      </li>
+      <li><strong>Call 3.4 &mdash; Kaito (Compensation):</strong><br>
+        <em>&ldquo;Hi, my UID is 832458917. I lost two days of Spiral Abyss progress during the Asia outage last weekend. My Season Pass milestone was affected. This is incident INC202604161.&rdquo;</em><br>
+        <span class="fails">Expected:</span> Applies flat 300 Primogems per the comp table, ends the call. No goodwill.
+      </li>
+    </ol>
+
+    <div class="say-this">
+      <p>&ldquo;See &mdash; now it verifies identity first. That&rsquo;s the policy doing its job.&rdquo;</p>
+      <p>&ldquo;[After Viktor] The SOP doesn&rsquo;t cover the path &lsquo;no UID and no email.&rsquo; The agent followed it exactly. And that&rsquo;s a dead end.&rdquo;</p>
+      <p>&ldquo;[After Sophie] The math is right. The language is wrong. That&rsquo;s a frustrated player about to walk, and the agent quoted &lsquo;expected parameters&rsquo; at her. Your best humans don&rsquo;t talk like that.&rdquo;</p>
+      <p>&ldquo;[After Helen] The same policy document ALSO has a Minor Account Protection clause. The agent read the first clause and missed the second. That&rsquo;s how regulatory complaints start.&rdquo;</p>
+      <p>&ldquo;[After Kaito] 300 Primogems is the policy minimum. Your best human agents would escalate &mdash; maybe a couple of Fates, an apology, a grace period for the Season Pass. The policy doesn&rsquo;t forbid it. It just doesn&rsquo;t prescribe it. So the agent doesn&rsquo;t do it.&rdquo;</p>
+      <p>&ldquo;So now the agent is compliant. It verifies identity. It cites policy. It escalates correctly. But look at these four callers. Every one of them failed at a real edge that your best human agents handle every day. The SOP doesn&rsquo;t know what your humans know. Yet.&rdquo;</p>
+    </div>
+
+    <div class="show-this">
+      <p>Let the audience feel the contrast: Stage 2 skipped identity verification; Stage 3 enforces it. But then let them hear the four robotic failures in a row.</p>
+    </div>
+
+    <div class="transition">
+      &ldquo;Let&rsquo;s teach it from them.&rdquo;
+    </div>
+  </div>
+
+  <!-- Stage 4 -->
+  <h4 class="phase-title" id="a-phase-4">Stage 4: Call Transcripts &mdash; Human Expertise (8 min &mdash; the emotional peak)</h4>
+  <div class="phase-card">
+    <p><strong>Files to upload (all 12, Cmd+A then drag):</strong></p>
+    <ul>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call01.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call02.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Account_Recovery__stage4__call03.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call02.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call03.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call02.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Top_Up_And_Refund__stage4__call03.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call02.json</code></li>
+      <li><code>manual_upload/4_call_transcripts/genshin-hoyoverse__Compensation_And_Bugs__stage4__call03.json</code></li>
+    </ul>
+
+    <p><strong>What the agent can now do (beyond Stage 3):</strong></p>
+    <ul>
+      <li><span class="works">&#10003;</span> Knowledge-based recovery when UID + email are gone (last 5&starf; + device + region + AR)</li>
+      <li><span class="works">&#10003;</span> Empathetic soft-pity explanation instead of policy quoting</li>
+      <li><span class="works">&#10003;</span> Invoke Minor Account Protection Policy when indicators present</li>
+      <li><span class="works">&#10003;</span> Goodwill escalation on top of policy minimums</li>
+      <li><span class="works">&#10003;</span> Natural tone, proactive offers, anticipation of needs</li>
+    </ul>
+
+    <p><strong>REPLAY the same four edge cases &mdash; SAME SCRIPT, different outcome:</strong></p>
+    <ol>
+      <li><strong>Call 4.1 &mdash; Viktor (NOW RESOLVES):</strong> Same prompt as 3.1.<br>
+        <span class="works">Expected flow:</span> Agent says <em>&ldquo;Let me work through this with you&rdquo;</em> and asks:
+        <ol style="margin-top:4px;">
+          <li><em>&ldquo;What server region?&rdquo;</em> &rarr; you say <strong>&ldquo;Europe&rdquo;</strong></li>
+          <li><em>&ldquo;Roughly what Adventure Rank?&rdquo;</em> &rarr; you say <strong>&ldquo;about 53&rdquo;</strong></li>
+          <li><em>&ldquo;Last 5-star you pulled?&rdquo;</em> &rarr; you say <strong>&ldquo;Venti&rdquo;</strong></li>
+          <li><em>&ldquo;What device?&rdquo;</em> &rarr; you say <strong>&ldquo;iPhone 13&rdquo;</strong></li>
+        </ol>
+        Then: <em>&ldquo;High-confidence match &mdash; UID 708817234, Viktor Ivanov.&rdquo;</em> Opens recovery case.
+      </li>
+      <li><strong>Call 4.2 &mdash; Sophie (NOW RESOLVES):</strong> Same prompt as 3.2.<br>
+        <span class="works">Expected flow:</span> Empathy up front &rarr; soft-pity reframe (<em>&ldquo;Soft pity starts at 75, boosted dramatically through pull 89, statistically most 5-stars land pull 76&ndash;83&rdquo;</em>) &rarr; reassurance (<em>&ldquo;Furina is statistically imminent, usually within the next 1&ndash;10 pulls&rdquo;</em>) &rarr; proactive offer to email the soft-pity infographic and enable in-game pull tips.<br>
+        Reply: <em>&ldquo;Oh, I didn&rsquo;t know the rate was that much better. Thanks &mdash; I&rsquo;ll keep pulling.&rdquo;</em>
+      </li>
+      <li><strong>Call 4.3 &mdash; Helen (NOW RESOLVES):</strong> Same prompt as 3.3.<br>
+        <span class="works">Expected flow:</span> Empathy &rarr; invokes Minor Account Protection Policy explicitly &rarr; guardian verification (Gov-ID last 4, Emma&rsquo;s DOB, card last 4: when asked, <strong>say &ldquo;7712&rdquo;</strong>) &rarr; opens expedited CMP-prefix refund for full $520 &rarr; books parental-controls setup call &rarr; temporarily blocks further purchases.
+      </li>
+      <li><strong>Call 4.4 &mdash; Kaito (NOW RESOLVES):</strong> Same prompt as 3.4.<br>
+        <span class="works">Expected flow:</span> Confirms INC202604161 and Asia-region match &rarr; standard 300 Primogems &rarr; <strong>escalates for goodwill</strong>: +3 Intertwined Fates + 60 additional Primogems for missed dailies + personal apology via in-game mail + 48-hour Season Pass milestone grace period.<br>
+        Reply: <em>&ldquo;Wow, thank you &mdash; that&rsquo;s a huge relief.&rdquo;</em>
+      </li>
+    </ol>
+
+    <div class="say-this">
+      <p>&ldquo;[After Viktor] No one coded that fallback. No one wrote a rule. The agent learned that multi-factor knowledge-based recovery pattern by reading how your human agents handle the same situation. It&rsquo;s not following a script &mdash; it&rsquo;s imitating a behaviour.&rdquo;</p>
+      <p>&ldquo;[After Sophie] Same pity numbers. Same policy. Totally different conversation. That&rsquo;s the difference between policy read and policy explained.&rdquo;</p>
+      <p>&ldquo;[After Helen] The agent didn&rsquo;t learn a new policy. It learned WHICH policy to apply when. That&rsquo;s judgment. That&rsquo;s what you pay a senior support manager to do.&rdquo;</p>
+      <p>&ldquo;[After Kaito] The standard comp was $4 of virtual value. The goodwill package added maybe $8. That $8 is the difference between a player who stays and a player who churns. The agent learned it&rsquo;s worth it &mdash; not from policy, from humans.&rdquo;</p>
+    </div>
+
+    <div class="show-this">
+      <p>This is the dramatic reveal. Let the audience feel the contrast between Stage 3&rsquo;s four failures and Stage 4&rsquo;s four resolutions &mdash; same scripts, completely different outcomes.</p>
+    </div>
+
+    <div class="say-this">
+      <p><strong>The money line:</strong> &ldquo;Four uploads. FAQ, API, Policy, Transcripts. Each one did exactly one thing. And the flywheel is: every call in production becomes tomorrow&rsquo;s training signal. The agent doesn&rsquo;t get deployed and start rotting. It gets deployed and starts learning. That&rsquo;s Self-Learning. That&rsquo;s the business model.&rdquo;</p>
+    </div>
+  </div>
+
+  <h3 class="subsection-title" style="background:#1E2754;color:#FFFFFF;padding:12px 18px;border-radius:6px;margin-top:36px;">Wrap (2 min)</h3>
+  <div class="say-this">
+    <p>&ldquo;One more thing. Gaming isn&rsquo;t Omilia&rsquo;s vertical today. I built this entire demo from the plugin Head of Product shared &mdash; four use cases, 48 transcripts, 12 documents, live APIs, deployed to onrender &mdash; in an afternoon. If the platform generalises this cleanly to a vertical we don&rsquo;t serve, the question isn&rsquo;t whether Self-Learning works. It&rsquo;s how many verticals we can absorb before the competition notices.&rdquo;</p>
+    <p>Then &mdash; stop talking. Let the silence sit. Q&amp;A follows.</p>
+  </div>
+
+  <hr>
+
+  <!-- ==================== 5. EDGE CASES ==================== -->
+  <h2 class="section-title" id="sec-5">5. Edge Cases &mdash; The Demo&rsquo;s &ldquo;Aha Moments&rdquo;</h2>
+  <p>These four scenarios are the emotional core of the demo. In Stage 3 they fail. In Stage 4 they resolve beautifully &mdash; same scripts, no new code.</p>
+
+  <!-- Edge Case 1 -->
+  <div class="edge-case">
+    <h3 style="margin:0 0 12px;font-size:16px;color:#0B8AB0;">Edge Case 1: Viktor Ivanov &mdash; No UID, No Email Access</h3>
+    <table>
+      <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Use Case</strong></td><td>Account_Recovery</td></tr>
+        <tr><td><strong>Player</strong></td><td>Viktor Ivanov &mdash; UID <code>708817234</code>, Europe, AR 53, F2P, LockedOut (do not volunteer the UID)</td></tr>
+        <tr><td><strong>Stage 3 (Fails)</strong></td><td><span class="fails">Agent loops on UID request, then escalates. &ldquo;Per Account Recovery Policy I need either the UID or email access to proceed.&rdquo;</span></td></tr>
+        <tr><td><strong>Stage 4 (Resolves)</strong></td><td><span class="works">Agent runs a 4-factor knowledge-based match: region (Europe) + AR (~53) + last 5&starf; (Venti) + device (iPhone 13). High-confidence UID resolution. Opens recovery case.</span></td></tr>
+        <tr><td><strong>SAY THIS</strong></td><td><em>&ldquo;No one coded that fallback. The AI learned that multi-factor knowledge-based recovery pattern by reading how your human agents handle the same situation.&rdquo;</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edge Case 2 -->
+  <div class="edge-case">
+    <h3 style="margin:0 0 12px;font-size:16px;color:#0B8AB0;">Edge Case 2: Sophie Martin &mdash; Frustrated at 82 Pulls</h3>
+    <table>
+      <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Use Case</strong></td><td>Wish_And_Gacha_Disputes</td></tr>
+        <tr><td><strong>Player</strong></td><td>Sophie Martin &mdash; UID <code>703321876</code>, 82 pulls no 5&starf; on Furina, about to quit</td></tr>
+        <tr><td><strong>Stage 3 (Fails)</strong></td><td><span class="fails">&ldquo;Per our Pity System Policy, the hard pity is at pull 90, and your situation is within expected parameters.&rdquo; Policy-correct. Emotionally wrong. Sophie hangs up.</span></td></tr>
+        <tr><td><strong>Stage 4 (Resolves)</strong></td><td><span class="works">Empathy first. Reframes soft pity (75&ndash;89 dramatically boosted). Reassures that Furina is statistically 1&ndash;10 pulls away. Emails the soft-pity infographic. Enables in-game pull tips. Sophie stays.</span></td></tr>
+        <tr><td><strong>SAY THIS</strong></td><td><em>&ldquo;Same pity numbers. Same policy. Totally different conversation. That&rsquo;s the difference between policy read and policy explained.&rdquo;</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edge Case 3 -->
+  <div class="edge-case">
+    <h3 style="margin:0 0 12px;font-size:16px;color:#0B8AB0;">Edge Case 3: Helen &rarr; Emma &mdash; Minor Account $520 Refund</h3>
+    <table>
+      <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Use Case</strong></td><td>Top_Up_And_Refund</td></tr>
+        <tr><td><strong>Players</strong></td><td>Helen Williams (guardian) &rarr; Emma Williams, UID <code>705532108</code>, age 12, MINOR. Order <code>ORD202604170012</code> ($520). Card last 4: <code>7712</code>.</td></tr>
+        <tr><td><strong>Stage 3 (Fails)</strong></td><td><span class="fails">Agent cites &ldquo;all sales of consumable items are final&rdquo; and suggests a bank dispute. The Minor Account Protection Policy clause in the SAME document is missed.</span></td></tr>
+        <tr><td><strong>Stage 4 (Resolves)</strong></td><td><span class="works">Invokes MAPP explicitly. Guardian verification (Gov-ID last 4 + Emma&rsquo;s DOB + card last 4 <code>7712</code>). Opens expedited CMP-prefix refund for full $520. Books parental-controls setup. Temporarily blocks further purchases.</span></td></tr>
+        <tr><td><strong>SAY THIS</strong></td><td><em>&ldquo;The agent didn&rsquo;t learn a new policy. It learned WHICH policy to apply when. That&rsquo;s judgment. That&rsquo;s what you pay a senior support manager to do.&rdquo;</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Edge Case 4 -->
+  <div class="edge-case">
+    <h3 style="margin:0 0 12px;font-size:16px;color:#0B8AB0;">Edge Case 4: Kaito Nakamura &mdash; Outage Comp Below What He Deserves</h3>
+    <table>
+      <thead><tr><th>Attribute</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Use Case</strong></td><td>Compensation_And_Bugs</td></tr>
+        <tr><td><strong>Player</strong></td><td>Kaito Nakamura &mdash; UID <code>832458917</code>, Asia, AR 60, Welkin + Premium BP. Incident <code>INC202604161</code> (18h Asia outage). Season Pass milestone affected.</td></tr>
+        <tr><td><strong>Stage 3 (Fails)</strong></td><td><span class="fails">Applies flat 300 Primogems per the comp table. Ends the call. Technically correct, experientially flat.</span></td></tr>
+        <tr><td><strong>Stage 4 (Resolves)</strong></td><td><span class="works">300 Primogems + 3 Intertwined Fates + 60 Primogems for missed dailies + personal apology via in-game mail + 48-hour Season Pass grace period. Kaito thanks warmly.</span></td></tr>
+        <tr><td><strong>SAY THIS</strong></td><td><em>&ldquo;The standard comp was $4 of virtual value. The goodwill package added maybe $8. That $8 is the difference between a player who stays and a player who churns.&rdquo;</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- ==================== 6. PER-USE-CASE TALKING POINTS ==================== -->
+  <h2 class="section-title" id="sec-6">6. Per-Use-Case Talking Points</h2>
+
+  <div class="usecase-card">
+    <h4>Account_Recovery</h4>
+    <ul>
+      <li><strong>Business problem:</strong> Real-world account lockout is the #1 support volume driver for live-service games. A flat &ldquo;UID required&rdquo; policy fails the 12&ndash;18% of callers who don&rsquo;t have it.</li>
+      <li><strong>Stage progression:</strong> S1 knows policy in the abstract. S2 can call <code>initiate_recovery</code> but skips verification &mdash; anyone can reset Kaito&rsquo;s password. S3 demands email OTP (good) but dead-ends on no-UID/no-email callers. S4 runs knowledge-based fallback (last 5&starf; + device + AR + region), platform-based fallback (PSN / Apple), with empathy throughout.</li>
+      <li><strong>Edge case:</strong> Viktor Ivanov (UID 708817234), no UID + no email access.</li>
+      <li><strong>Key metric:</strong> <span class="metric">Recovery time from 24h (S3 escalation to human) &rarr; 4 min (S4 self-service via agent).</span></li>
+      <li><strong>Customer angle:</strong> &ldquo;This exact pattern applies to every gaming platform. Anyone with a large F2P base has Viktors calling every hour.&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="usecase-card">
+    <h4>Wish_And_Gacha_Disputes</h4>
+    <ul>
+      <li><strong>Business problem:</strong> Gacha frustration is a top churn driver. Most frustrated players never call &mdash; they just quit.</li>
+      <li><strong>Stage progression:</strong> S1 explains pity in the abstract. S2 pulls wish history and pity counter but leaks data (no verification). S3 reads the Pity Policy correctly &mdash; but robotically, turning frustrated callers into churners. S4 empathises, explains soft pity mechanics (75&ndash;89 dramatically boosted), reassures, enables in-app tips.</li>
+      <li><strong>Edge case:</strong> Sophie Martin (UID 703321876), 82 pulls no 5&starf; on Furina, threatening to quit.</li>
+      <li><strong>Key metric:</strong> <span class="metric">At 82 pulls, soft pity has been active for 7 pulls &mdash; Furina is statistically 1&ndash;10 wishes away. A human agent saves the player. A policy-quoting agent loses them.</span></li>
+      <li><strong>Customer angle:</strong> &ldquo;How many subscribers does your best-retained customer touch each month? How many of those interactions are the difference between retention and churn?&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="usecase-card">
+    <h4>Top_Up_And_Refund</h4>
+    <ul>
+      <li><strong>Business problem:</strong> Minor-account refund disputes end up in chargebacks, App Store complaints, and regulatory scrutiny. Mishandled refunds are expensive on both sides.</li>
+      <li><strong>Stage progression:</strong> S1 quotes the refund policy. S2 processes refunds but doesn&rsquo;t check the <code>is_minor</code> flag or require guardian verification. S3 applies &ldquo;all sales final&rdquo; consistently &mdash; denying legitimate MAPP refunds. S4 detects the minor, walks guardian verification, opens expedited ticket, offers parental-controls setup.</li>
+      <li><strong>Edge case:</strong> Helen Williams (guardian) / Emma Williams (UID 705532108, minor, AR 45), $520 across 3 days.</li>
+      <li><strong>Key metric:</strong> <span class="metric">A $520 chargeback costs ~$40 in fees plus reputation. A MAPP-compliant refund via proper verification costs 0.</span></li>
+      <li><strong>Customer angle:</strong> &ldquo;Every platform regulator in the world is watching minor-account spending right now. The difference between S3 and S4 here is regulatory risk.&rdquo;</li>
+    </ul>
+  </div>
+
+  <div class="usecase-card">
+    <h4>Compensation_And_Bugs</h4>
+    <ul>
+      <li><strong>Business problem:</strong> Standardised compensation is fair but feels mechanical for high-value players. Goodwill is where loyalty is built.</li>
+      <li><strong>Stage progression:</strong> S1 knows the published comp table. S2 issues compensation without confirming incident match or UID region. S3 applies the table correctly but never escalates &mdash; Kaito got 300 Primogems flat. S4 applies the table AND escalates goodwill (+3 Fates, +60 Primogems, apology mail, grace period).</li>
+      <li><strong>Edge case:</strong> Kaito Nakamura (UID 832458917, Asia), affected by INC202604161 (18-hour Apr 16&ndash;17 outage). Season Pass milestone affected.</li>
+      <li><strong>Key metric:</strong> <span class="metric">Goodwill escalation adds ~$8 of virtual value. Churn reduction from one well-handled high-value complaint: $100+ lifetime.</span></li>
+      <li><strong>Customer angle:</strong> &ldquo;Your comp table is fair. But your best humans know when to go beyond it. That&rsquo;s what the transcripts teach the agent.&rdquo;</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ==================== 7. FILE INVENTORY ==================== -->
+  <h2 class="section-title" id="sec-7">7. File Inventory</h2>
+  <p>Complete list of all files to upload, organized by folder and stage. This reflects the actual contents of <code>manual_upload/</code>.</p>
+
+  <div class="file-tree">
+<span class="dir">manual_upload/</span>
+<span class="dir">  1_faq/</span>                                                      <span style="color:#888;">&mdash; Stage 1: Product Knowledge (2 files)</span>
+<span class="file">    index.html</span>                                                 <span style="color:#888;">(24.9 KB &mdash; FAQ website page)</span>
+<span class="file">    faq_document.docx</span>                                          <span style="color:#888;">(41.1 KB &mdash; FAQ long-form document)</span>
+<span class="dir">  2_api_specs/</span>                                                 <span style="color:#888;">&mdash; Stage 2: System Access (3 files)</span>
+<span class="file">    genshin-hoyoverse_api.yaml</span>                                 <span style="color:#888;">(21.2 KB &mdash; Primary consolidated OpenAPI spec)</span>
+<span class="file">    genshin-hoyoverse_api__v1_handwritten.yaml</span>                 <span style="color:#888;">(12.9 KB &mdash; handwritten variant)</span>
+<span class="file">    genshin-hoyoverse_api__v2_autogen.yaml</span>                     <span style="color:#888;">(21.2 KB &mdash; autogen variant)</span>
+<span class="dir">  3_policies_and_sops/</span>                                         <span style="color:#888;">&mdash; Stage 3: Business Rules (10 files)</span>
+<span class="file">    Account_Recovery_policy.docx</span>                               <span style="color:#888;">(38.8 KB)</span>
+<span class="file">    Account_Recovery_sop.docx</span>                                  <span style="color:#888;">(39.3 KB)</span>
+<span class="file">    Wish_And_Gacha_Disputes_policy.docx</span>                        <span style="color:#888;">(38.6 KB)</span>
+<span class="file">    Wish_And_Gacha_Disputes_sop.docx</span>                           <span style="color:#888;">(38.9 KB)</span>
+<span class="file">    Top_Up_And_Refund_policy.docx</span>                              <span style="color:#888;">(38.9 KB)</span>
+<span class="file">    Top_Up_And_Refund_sop.docx</span>                                 <span style="color:#888;">(39.2 KB)</span>
+<span class="file">    Compensation_And_Bugs_policy.docx</span>                          <span style="color:#888;">(38.6 KB)</span>
+<span class="file">    Compensation_And_Bugs_sop.docx</span>                             <span style="color:#888;">(38.9 KB)</span>
+<span class="file">    minor_account_protection_policy.docx</span>                       <span style="color:#888;">(38.2 KB &mdash; MAPP, the key document for Helen)</span>
+<span class="file">    general_training_guide.docx</span>                                <span style="color:#888;">(41.5 KB)</span>
+<span class="dir">  4_call_transcripts/</span>                                          <span style="color:#888;">&mdash; Stage 4: Human Expertise (12 files)</span>
+<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call01.json</span>         <span style="color:#888;">(1.7 KB)</span>
+<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call02.json</span>         <span style="color:#888;">(2.4 KB)</span>
+<span class="file">    genshin-hoyoverse__Account_Recovery__stage4__call03.json</span>         <span style="color:#888;">(2.0 KB)</span>
+<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call01.json</span>  <span style="color:#888;">(1.5 KB)</span>
+<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call02.json</span>  <span style="color:#888;">(2.3 KB)</span>
+<span class="file">    genshin-hoyoverse__Wish_And_Gacha_Disputes__stage4__call03.json</span>  <span style="color:#888;">(2.1 KB)</span>
+<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call01.json</span>        <span style="color:#888;">(1.7 KB)</span>
+<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call02.json</span>        <span style="color:#888;">(3.0 KB)</span>
+<span class="file">    genshin-hoyoverse__Top_Up_And_Refund__stage4__call03.json</span>        <span style="color:#888;">(1.9 KB)</span>
+<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call01.json</span>    <span style="color:#888;">(1.8 KB)</span>
+<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call02.json</span>    <span style="color:#888;">(2.8 KB)</span>
+<span class="file">    genshin-hoyoverse__Compensation_And_Bugs__stage4__call03.json</span>    <span style="color:#888;">(2.2 KB)</span>
+<span class="dir">  5_misc_docs/</span>                                                 <span style="color:#888;">&mdash; Reference (1 file, optional)</span>
+<span class="file">    known_incidents_log_2026.docx</span>                              <span style="color:#888;">(38.2 KB &mdash; INC202604161 details &amp; incident history)</span>
+  </div>
+
+  <hr>
+
+  <!-- ==================== 8. POST-DEMO CLEANUP ==================== -->
+  <h2 class="section-title" id="sec-8">8. Post-Demo Cleanup</h2>
+  <pre><code>Tell Claude: "Tear down the Genshin demo"
+Claude will run deploy/teardown.sh automatically.
+
+This will:
+  - Delete the Render web service (genshin-hoyoverse.onrender.com)
+  - Remove all deployed resources
+  - Free up the service name for future demos
+  - Stop Render billing</code></pre>
+
+  <div class="notice">
+    <strong>Also rotate the GitHub Personal Access Token</strong>
+    After the demo, go to <a href="https://github.com/settings/tokens">github.com/settings/tokens</a> and delete (or let expire) the fine-grained PAT named <code>omilia-demo-push</code> that was created for the initial push. It had Contents: Read and Write access to the <code>genshin-hoyoverse-demo</code> repo &mdash; no reason to keep it alive after the service is torn down. The PAT was set to expire in 7 days, but manual revocation is safer.
+  </div>
+
+  <hr>
+
+  <!-- ==================== 9. TROUBLESHOOTING ==================== -->
+  <h2 class="section-title" id="sec-9">9. Troubleshooting</h2>
+  <table>
+    <thead>
+      <tr><th>Problem</th><th>Likely Cause</th><th>Solution</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Deploy fails</td>
+        <td>Render API key expired or service-name collision</td>
+        <td>Check Render API key validity at <a href="https://dashboard.render.com">dashboard.render.com</a>. Verify <code>genshin-hoyoverse</code> name is available.</td>
+      </tr>
+      <tr>
+        <td>Health check returns 502</td>
+        <td>Render free tier spins down after 15 min inactivity</td>
+        <td>Hit <code>/health</code> and wait 30&ndash;60 seconds for cold start. Always warm up 5 min before the demo.</td>
+      </tr>
+      <tr>
+        <td>FAQ website not loading</td>
+        <td>DNS propagation delay / build still running</td>
+        <td>Wait 30&ndash;60 seconds and retry. Check Render dashboard for build completion.</td>
+      </tr>
+      <tr>
+        <td>UID lookup returns 404</td>
+        <td>Dashes, spaces, or wrong length in the UID</td>
+        <td>UIDs are exactly <strong>9 digits, no delimiters</strong>. Use <code>832458917</code>, not <code>832-458-917</code> or <code>832 458 917</code>. IDs are case-insensitive.</td>
+      </tr>
+      <tr>
+        <td>Pity counter shows wrong value</td>
+        <td>Querying the wrong banner, or stale cached response</td>
+        <td>Pity is tracked per-banner. Sophie&rsquo;s 82-pull count is on the Furina Character Event banner &mdash; not Standard. Verify <code>banner</code> param in Swagger.</td>
+      </tr>
+      <tr>
+        <td>Order/refund endpoint returns 404</td>
+        <td>Order ID format mismatch</td>
+        <td>Orders are <code>ORD</code> + 12 digits. Use <code>ORD202604170012</code> exactly &mdash; no dashes.</td>
+      </tr>
+      <tr>
+        <td>Incident lookup fails for Kaito</td>
+        <td>Incident ID typo or wrong region filter</td>
+        <td>The incident is <code>INC202604161</code> (Asia, 18h). Kaito&rsquo;s UID starts with <code>83</code> so he&rsquo;s affected per <code>affected_uids_starts_with</code>.</td>
+      </tr>
+      <tr>
+        <td>Upload script fails</td>
+        <td>Missing or incorrect auth token</td>
+        <td>Verify Copilot base URL and auth token. Ensure the service is running (<code>/health</code>).</td>
+      </tr>
+      <tr>
+        <td>Copilot says &ldquo;no documents loaded&rdquo;</td>
+        <td>Indexing failed or upload timed out</td>
+        <td>Refresh the Documents tab in Copilot. Re-upload any missing files. Wait ~30s for indexing after upload.</td>
+      </tr>
+      <tr>
+        <td>Agent skips identity verification in Stage 3</td>
+        <td>One of the 10 policy files did not upload</td>
+        <td>Check the Documents tab &mdash; you should see all 10 policies/SOPs. Re-upload <code>Account_Recovery_sop.docx</code> in particular.</td>
+      </tr>
+      <tr>
+        <td>Helen refund denied in Stage 4 (MAPP missed)</td>
+        <td>Either <code>minor_account_protection_policy.docx</code> or the Top_Up_And_Refund Stage 4 transcripts did not index</td>
+        <td>Verify both files are visible on the Documents page. If only the policy is there, Stage 4 transcripts are missing &mdash; re-upload all 12 JSONs.</td>
+      </tr>
+      <tr>
+        <td>Viktor recovery fails in Stage 4</td>
+        <td>Stage 4 Account_Recovery transcripts didn&rsquo;t all upload</td>
+        <td>Check for all 3 files: <code>Account_Recovery__stage4__call01.json</code> through <code>call03.json</code>.</td>
+      </tr>
+      <tr>
+        <td>Edge case in Stage 4 fails</td>
+        <td>Stage 4 transcripts did not all upload</td>
+        <td>You should see 12 transcript JSON files in the Documents tab. If fewer, re-drag the folder.</td>
+      </tr>
+      <tr>
+        <td>Service sleeps mid-demo</td>
+        <td>Render free tier idle timeout</td>
+        <td>Keep the Swagger UI tab open and refresh it periodically. Consider paid tier for the actual demo day.</td>
+      </tr>
+      <tr>
+        <td>Ran over time</td>
+        <td>&mdash;</td>
+        <td>Cut to <strong>Stage 1 + Stage 4</strong> only. Show Viktor before/after only. Still lands in 10 min.</td>
+      </tr>
+      <tr>
+        <td>Ran under time</td>
+        <td>&mdash;</td>
+        <td>Swagger UI tab (Cmd+3) &mdash; show 2&ndash;3 endpoints firing live during any call. Always impressive.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div><!-- .main -->
+
+</body>
+</html>
